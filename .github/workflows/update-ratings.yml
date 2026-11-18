@@ -15,50 +15,134 @@ jobs:
       - name: Pobierz zawartość repozytorium
         uses: actions/checkout@v4
 
+      - name: Zainstaluj Playwright i Chromium
+        run: |
+          pip install playwright
+          playwright install chromium
+
       - name: Pobierz oceny ze sklepu Meta Quest
         run: |
           python3 - << 'EOF'
-          import urllib.request
           import json
           import re
+          import urllib.request
+          import urllib.parse
+          from playwright.sync_api import sync_playwright
 
           APPS = {
               "lightkeepers": "https://www.meta.com/pl-pl/experiences/the-lightkeepers-protect-the-lighthouse/27856043040707456/",
               "mdns": "https://www.meta.com/pl-pl/experiences/medieval-dynasty-new-settlement/5900444653303887/",
               "bulletstorm": "https://www.meta.com/pl-pl/experiences/bulletstorm-vr/6565887093433499/",
-              "ghvr": "https://www.meta.com/pl-pl/experiences/green-hell-vr/3815577785147028/",
+              "ghvr": "https://www.meta.com/pl-pl/experiences/green-hell-vr/3815577785147028/"
           }
 
           with open("assets/ratings.json", "r", encoding="utf-8") as f:
               data = json.load(f)
 
-          headers = {
-              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-              "Accept-Language": "en-US,en;q=0.9"
-          }
+          # Usunięcie ewentualnego starego wpisu blairwitch z pliku JSON
+          data.pop("blairwitch", None)
 
-          for key, url in APPS.items():
-              if "WSTAW_ID_GRY" in url:
-                  continue
-              try:
-                  req = urllib.request.Request(url, headers=headers)
-                  html = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", errors="ignore")
-                  
-                  rating_match = re.search(r'"ratingValue"\s*:\s*"?([0-9.]+)"?', html)
-                  count_match = re.search(r'"ratingCount"\s*:\s*"?([0-9]+)"?', html)
-                  
-                  if not rating_match:
-                      rating_match = re.search(r'"quality_rating_aggregate"\s*:\s*([0-9.]+)', html)
-                  if not count_match:
-                      count_match = re.search(r'"total_rating_count"\s*:\s*([0-9]+)', html)
+          def extract_app_id(url):
+              match = re.search(r'/(\d{10,20})/?', url)
+              return match.group(1) if match else None
 
-                  if rating_match:
-                      data[key]["score"] = round(float(rating_match.group(1)), 1)
-                  if count_match:
-                      data[key]["count"] = int(count_match.group(1))
-                  print(f"Zaktualizowano {key}: {data[key]}")
-              except Exception as e:
-                  print(f"Pominięto {key} z powodu błędu: {e}")
+          def fetch_via_graphql(app_id):
+              token = "OC|1317831034909742|"
+              endpoint = "https://graph.oculus.com/graphql"
+              variables = json.dumps({"applicationID": app_id})
+              payload = urllib.parse.urlencode({
+                  "access_token": token,
+                  "doc_id": "3828663700542720",
+                  "variables": variables
+              }).encode("utf-8")
+              req = urllib.request.Request(endpoint, data=payload, headers={
+                  "User-Agent": "Mozilla/5.0",
+                  "Content-Type": "application/x-www-form-urlencoded"
+              })
+              raw = urllib.request.urlopen(req, timeout=15).read().decode("utf-8", errors="ignore")
+              score_m = re.search(r'"quality_rating_aggregate"\s*:\s*([0-9.]+)', raw)
+              count_m = re.search(r'"total_rating_count"\s*:\s*([0-9]+)', raw)
+              return (
+                  round(float(score_m.group(1)), 1) if score_m else None,
+                  int(count_m.group(1)) if count_m else None
+              )
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch(headless=True)
+              context = browser.new_context(
+                  locale="en-US",
+                  user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
+              )
+              page = context.new_page()
+
+              for key, url in APPS.items():
+                  if key not in data:
+                      data[key] = {"score": 0, "count": 0}
+
+                  app_id = extract_app_id(url)
+                  print(f"\n--- Sprawdzam {key} (ID: {app_id}) ---")
+
+                  # Metoda 1: Bezpośrednie API GraphQL sklepu Oculus/Meta
+                  if app_id:
+                      try:
+                          score, count = fetch_via_graphql(app_id)
+                          if score and count:
+                              data[key]["score"] = score
+                              data[key]["count"] = count
+                              print(f"[SUKCES GraphQL] {key}: {score} ({count} ocen)")
+                              continue
+                      except Exception as e:
+                          print(f"[Info GraphQL] Nie udało się ({e}), próbuję przez przeglądarkę...")
+
+                  # Metoda 2: Przeglądarka Chromium z kliknięciem zgody na cookies (EN i PL)
+                  try:
+                      page.goto(url, wait_until="domcontentloaded", timeout=35000)
+                      page.wait_for_timeout(4000)
+
+                      cookie_buttons = [
+                          "Allow all cookies",
+                          "Accept all",
+                          "Decline optional cookies",
+                          "Zezwól na wszystkie pliki cookie",
+                          "Odrzuć opcjonalne pliki cookie"
+                      ]
+                      for btn_text in cookie_buttons:
+                          btn = page.locator(f"text={btn_text}").first
+                          if btn.is_visible():
+                              btn.click()
+                              page.wait_for_timeout(2000)
+                              break
+
+                      html = page.content()
+                      body_text = page.inner_text("body")
+
+                      score_m = re.search(r'"quality_rating_aggregate"\s*:\s*([0-9.]+)', html) or re.search(r'"ratingValue"\s*:\s*"?([0-9.]+)"?', html)
+                      count_m = re.search(r'"total_rating_count"\s*:\s*([0-9]+)', html) or re.search(r'"ratingCount"\s*:\s*"?([0-9]+)"?', html)
+
+                      if not (score_m and count_m):
+                          t_match = re.search(r'([1-5][.,][0-9])\s*\(?([0-9\s,.]{1,8})\s*(?:ratings|reviews|ocen|oceny|\))', body_text, re.IGNORECASE)
+                          if t_match:
+                              data[key]["score"] = round(float(t_match.group(1).replace(",", ".")), 1)
+                              raw_count = re.sub(r'[^\d]', '', t_match.group(2))
+                              if raw_count:
+                                  data[key]["count"] = int(raw_count)
+                              print(f"[SUKCES Tekst] {key}: {data[key]}")
+                              continue
+
+                      if score_m:
+                          data[key]["score"] = round(float(score_m.group(1)), 1)
+                      if count_m:
+                          data[key]["count"] = int(count_m.group(1))
+
+                      if data[key]["count"] > 0:
+                          print(f"[SUKCES HTML] {key}: {data[key]}")
+                      else:
+                          print(f"[UWAGA] Nie znaleziono liczby ocen dla {key}. Fragment tekstu ze strony:")
+                          print(body_text[:400].replace("\n", " "))
+                  except Exception as e:
+                      print(f"[BŁĄD Playwright] {key}: {e}")
+
+              browser.close()
 
           with open("assets/ratings.json", "w", encoding="utf-8") as f:
               json.dump(data, f, indent=2)
