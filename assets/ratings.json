@@ -1,22 +1,18 @@
 {
   "lightkeepers": {
     "score": 4.7,
-    "count": 0
+    "count": 348
   },
   "mdns": {
-    "score": 4.3,
-    "count": 0
+    "score": 4.7,
+    "count": 9155
   },
   "bulletstorm": {
-    "score": 3.9,
-    "count": 0
+    "score": 4.1,
+    "count": 412
   },
   "ghvr": {
-    "score": 4.3,
-    "count": 0
-  },
-  "blairwitch": {
-    "score": 4.0,
-    "count": 0
+    "score": 4.2,
+    "count": 6202
   }
 }
