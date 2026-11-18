@@ -1,0 +1,72 @@
+name: Update Meta Quest Ratings
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ratings:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz zawartość repozytorium
+        uses: actions/checkout@v4
+
+      - name: Pobierz oceny ze sklepu Meta Quest
+        run: |
+          python3 - << 'EOF'
+          import urllib.request
+          import json
+          import re
+
+          APPS = {
+              "lightkeepers": "https://www.meta.com/pl-pl/experiences/the-lightkeepers-protect-the-lighthouse/27856043040707456",
+              "mdns": "https://www.meta.com/pl-pl/experiences/medieval-dynasty-new-settlement/5900444653303887/",
+              "bulletstorm": "https://www.meta.com/pl-pl/experiences/bulletstorm-vr/6565887093433499/",
+              "ghvr": "https://www.meta.com/pl-pl/experiences/green-hell-vr/3815577785147028/",
+          }
+
+          with open("assets/ratings.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          headers = {
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+              "Accept-Language": "en-US,en;q=0.9"
+          }
+
+          for key, url in APPS.items():
+              if "WSTAW_ID_GRY" in url:
+                  continue
+              try:
+                  req = urllib.request.Request(url, headers=headers)
+                  html = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", errors="ignore")
+                  
+                  rating_match = re.search(r'"ratingValue"\s*:\s*"?([0-9.]+)"?', html)
+                  count_match = re.search(r'"ratingCount"\s*:\s*"?([0-9]+)"?', html)
+                  
+                  if not rating_match:
+                      rating_match = re.search(r'"quality_rating_aggregate"\s*:\s*([0-9.]+)', html)
+                  if not count_match:
+                      count_match = re.search(r'"total_rating_count"\s*:\s*([0-9]+)', html)
+
+                  if rating_match:
+                      data[key]["score"] = round(float(rating_match.group(1)), 1)
+                  if count_match:
+                      data[key]["count"] = int(count_match.group(1))
+                  print(f"Zaktualizowano {key}: {data[key]}")
+              except Exception as e:
+                  print(f"Pominięto {key} z powodu błędu: {e}")
+
+          with open("assets/ratings.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, indent=2)
+          EOF
+
+      - name: Zapisz zaktualizowane oceny w repozytorium
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/ratings.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Meta Quest ratings" && git push)
