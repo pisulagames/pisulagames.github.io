@@ -5,29 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Pisula Games</title>
 
-    <!-- ==========================================================================
-         IKONA STRONY (FAVICON) W KARCIE PRZEGLĄDARKI
-         ========================================================================== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Crect width='1000' height='1000' rx='200' fill='%231C1917'/%3E%3Cg transform='translate(145, 55) scale(0.85)'%3E%3Cpath d='M217.021 635.215L229.021 612.215L460.021 702.715L543.021 728.715L587.521 732.715L591.021 764.715L581.021 777.715L325.021 726.715L217.021 635.215Z' fill='%23FF5A36'/%3E%3Cpath d='M217.691 633.789C305.614 707.595 439.257 757.173 590.971 764.527C600.367 820.818 607.915 877.734 613.546 935.213C574.412 933.233 535.02 932.23 495.395 932.23C325.319 932.23 159.559 950.69 0 985.714C56.1331 858.004 129.702 739.692 217.691 633.789Z' fill='%23FAF7F2'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M821.654 0C832.342 60.0385 835.492 122.437 830.154 186.082C824.397 254.729 809.145 320.302 785.805 381.621C794.242 407.931 798.777 435.826 798.777 464.715C798.777 592.232 710.433 700.388 588.03 738.27C442.896 729.828 314.87 682.71 228.459 612.864C200.727 569.579 184.777 518.894 184.777 464.715C184.777 438.44 188.527 412.987 195.554 388.801C109.016 303.329 55.3848 184.616 55.3848 53.375C55.3848 46.5227 55.5318 39.7039 55.8213 32.9229C177.279 69.4627 291.289 123.204 395.021 191.312C425.44 181.842 457.97 176.715 491.777 176.715C523.043 176.715 553.218 181.101 581.64 189.251C638.25 101.703 722.833 34.749 821.654 0ZM605.732 543.903C594.99 519.558 567.845 504.164 538.461 507.947C518.824 510.476 502.323 521.038 492.275 535.607C493.811 542.554 497.631 548.944 503.154 554.355C514.032 562.228 526.427 567.928 539.634 570.981C542.263 571.339 544.955 571.57 547.694 571.665C548.087 579.263 548.148 587.092 547.844 595.083C547.805 596.089 547.76 597.091 547.711 598.091C546.948 598.105 546.182 598.115 545.416 598.118C515.244 598.255 487.113 590.275 463.516 576.431C484.652 600.759 513.625 615.708 545.526 615.563C577.461 615.419 606.323 600.175 627.243 575.611C606.315 588.174 581.732 596.104 555.249 597.784C555.289 597.019 555.326 596.252 555.355 595.482C555.668 587.27 555.344 579.274 554.455 571.618C577.988 570.489 597.752 559.304 605.732 543.903ZM421.961 405.444C420.727 386.842 399.707 373.089 375.011 374.726C350.314 376.363 331.293 392.77 332.525 411.373C333.759 429.976 354.779 443.73 379.476 442.093C404.172 440.456 423.194 424.047 421.961 405.444ZM673.201 389.71C671.967 371.108 650.948 357.354 626.251 358.991C601.554 360.628 582.534 377.036 583.767 395.639C585 414.241 606.02 427.995 630.717 426.358C655.414 424.721 674.434 408.313 673.201 389.71ZM101.521 93.7148C102.645 179.998 145.71 258.459 213.495 310.271C251.73 284.771 283.502 250.711 305.649 210.693C253.477 158.614 183.044 117.468 101.521 93.7148ZM788.031 64.124C726.241 90.4046 674.074 135.548 639.045 192.651C671.22 233.894 714.71 265.99 765.083 284.089C783.867 245.491 795.242 202.485 797.262 156.847C798.679 124.833 795.397 93.7012 788.031 64.124Z' fill='%23FAF7F2'/%3E%3C/g%3E%3C/svg%3E">
 
-    <!-- Czcionki Google: Nunito + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ==========================================================================
-           1. ZMIENNE KOLORYSTYCZNE I FONTY
-           ========================================================================== */
         :root {
             --font-display: 'Nunito', sans-serif;
             --font-body: 'JetBrains Mono', monospace;
             --radius: 10px;
 
-            /* Kolory przypisane do firm na osi czasu */
-            --studio-spectral: #C084FC; /* Fiolet dla Spectral Games */
-            --studio-incuvo: #38BDF8;   /* Błękit dla Incuvo / People Can Fly */
-            --danger-red: #EF4444;      /* Lekko czerwony akcent dla X przy zamykaniu */
+            --studio-spectral: #C084FC;
+            --studio-incuvo: #38BDF8;
         }
 
         :root[data-theme="dark"] {
@@ -41,6 +32,7 @@
             --grid-dot: rgba(250, 247, 242, 0.07);
             --modal-backdrop: rgba(12, 10, 9, 0.78);
             --star-color: #FBBF24;
+            --danger-red: #EF4444;
         }
 
         :root[data-theme="light"] {
@@ -60,9 +52,6 @@
             --studio-incuvo: #0284C7;
         }
 
-        /* ==========================================================================
-           2. RESET I BAZA
-           ========================================================================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -120,9 +109,6 @@
             max-width: 780px;
         }
 
-        /* ==========================================================================
-           3. GÓRNY PASEK I CENTRALNE LOGO
-           ========================================================================== */
         .top-utility-bar {
             border-bottom: 1px solid var(--border);
             font-family: var(--font-body);
@@ -246,9 +232,6 @@
             margin-top: 4px;
         }
 
-        /* ==========================================================================
-           4. PASEK NAWIGACJI (PRZYKLEJONY NA GÓRZE NA DESKTOPIE I MOBILE)
-           ========================================================================== */
         .main-nav-bar {
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
@@ -310,9 +293,6 @@
             }
         }
 
-        /* ==========================================================================
-           5. SYSTEM ZAKŁADEK GŁÓWNYCH I ELEMENTY WSPÓLNE
-           ========================================================================== */
         .main-wrapper {
             flex: 1 0 auto;
             width: 100%;
@@ -382,9 +362,6 @@
             background-color: var(--border);
         }
 
-        /* ==========================================================================
-           6. KOMPONENTY: KARTY PROJEKTÓW, OCENY META QUEST I SIATKI
-           ========================================================================== */
         .hero-box {
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -642,9 +619,6 @@
             gap: 10px;
         }
 
-        /* ==========================================================================
-           7. OŚ CZASU (TIMELINE) Z KOLORYSTYCZNYM AKCENTEM FIRMY
-           ========================================================================== */
         .timeline {
             position: relative;
             margin: 24px 0 40px 8px;
@@ -789,9 +763,6 @@
             color: var(--studio-color);
         }
 
-        /* ==========================================================================
-           8. WYSKAKUJĄCE OKNA MODALNE (SZCZEGÓŁY PROJEKTÓW NAD STRONĄ)
-           ========================================================================== */
         .modal-backdrop {
             position: fixed;
             inset: 0;
@@ -983,9 +954,6 @@
             color: var(--text);
         }
 
-        /* ==========================================================================
-           9. BANER SOCIAL MEDIA ORAZ ZWARTY KONTAKT
-           ========================================================================== */
         .socials-banner {
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -1053,18 +1021,61 @@
             margin-bottom: 32px;
         }
 
+        .contact-mail-wrapper {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 10px 0 20px;
+        }
+
         .contact-mail {
             display: inline-block;
             font-family: var(--font-display);
-            font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+            font-size: clamp(1.15rem, 2vw, 1.55rem);
             font-weight: 800;
             color: var(--accent);
-            margin: 10px 0 20px;
             word-break: break-all;
         }
 
         .contact-mail:hover {
             text-decoration: underline;
+        }
+
+        /* Styl przycisku kopiowania adresu e-mail */
+        .copy-email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.18s ease;
+            white-space: nowrap;
+        }
+
+        .copy-email-btn svg {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+        }
+
+        .copy-email-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background-color: color-mix(in srgb, var(--accent) 8%, var(--surface));
+        }
+
+        .copy-email-btn.copied {
+            border-color: #10B981;
+            color: #10B981;
+            background-color: color-mix(in srgb, #10B981 12%, var(--surface));
         }
 
         .company-details {
@@ -1084,9 +1095,6 @@
             text-transform: uppercase;
         }
 
-        /* ==========================================================================
-           10. PASEK COOKIES / STORAGE NOTICE ORAZ STOPKA
-           ========================================================================== */
         .cookie-banner {
             position: fixed;
             bottom: 54px;
@@ -1166,9 +1174,6 @@
             color: var(--accent);
         }
 
-        /* ==========================================================================
-           11. WERSJA MOBILNA I TABLETOWA (RESPONSYWNOŚĆ)
-           ========================================================================== */
         @media (max-width: 900px) {
             .pillars-grid,
             .cards-grid-2,
@@ -1208,7 +1213,6 @@
                 padding: 0 10px;
             }
 
-            /* Pasek nawigacji na mobile: przyklejony + wizualna sugestia przewijania (fade + strzałki >>) */
             .main-nav-bar {
                 position: sticky;
                 top: 0;
@@ -1273,7 +1277,6 @@
                 display: none;
             }
 
-            /* Pulsujące strzałki podpowiadające kierunek przewijania */
             .nav-scroll-hint {
                 position: absolute;
                 top: 50%;
@@ -1311,7 +1314,6 @@
                 50% { transform: translate(-3px, -50%); }
             }
 
-            /* Cienki wskaźnik postępu przewinięcia pod pigułkami */
             .nav-scroll-track {
                 height: 2px;
                 width: calc(100% - 28px);
@@ -1346,7 +1348,6 @@
                 padding: 22px 20px;
             }
 
-            /* Trzy kafelki kompetencji OBOK SIEBIE na wąskich ekranach */
             .roles-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 8px;
@@ -1376,7 +1377,6 @@
                 margin-bottom: 0;
             }
 
-            /* Oś czasu mobilna */
             .timeline {
                 margin-left: 4px;
                 padding-left: 22px;
@@ -1406,7 +1406,6 @@
                 max-height: 180px;
             }
 
-            /* Okno modalne na smartfonie + zwijanie przycisku [X] po przewinięciu */
             .modal-backdrop {
                 padding: 12px;
             }
@@ -1483,9 +1482,6 @@
 </head>
 <body>
 
-    <!-- ==========================================================================
-         PASEK GÓRNY NAD LOGO (LINKI YT / IG + PRZEŁĄCZNIKI MOTYWU I JĘZYKA)
-         ========================================================================== -->
     <div class="top-utility-bar">
         <div class="container top-utility-inner">
             <div class="top-socials">
@@ -1520,10 +1516,6 @@
         </div>
     </div>
 
-
-    <!-- ==========================================================================
-         CENTRALNE LOGO (KLIKNIĘCIE ZAWSZE WRACA NA PODSTRONĘ HOME)
-         ========================================================================== -->
     <header class="brand-header">
         <div class="container">
             <a href="#home" class="logo-link">
@@ -1544,10 +1536,6 @@
         </div>
     </header>
 
-
-    <!-- ==========================================================================
-         PASEK NAWIGACJI (PRZYKLEJONY NA STAŁE + WSKAŹNIKI PRZEWIJANIA NA MOBILE)
-         ========================================================================== -->
     <nav id="main-nav-bar" class="main-nav-bar">
         <div class="container">
             <div class="nav-scroll-wrapper">
@@ -1577,19 +1565,10 @@
         </div>
     </nav>
 
-
-    <!-- ==========================================================================
-         GŁÓWNY KONTENER ZAWIERAJĄCY WSZYSTKIE 5 ZAKŁADEK
-         ========================================================================== -->
     <main class="main-wrapper">
         <div class="container">
 
-
-            <!-- ##################################################################
-                 PODSTRONA 1: HOME (#home)
-                 ################################################################## -->
             <div id="home" class="page-view active">
-
                 <section class="hero-box">
                     <h1 class="hero-title" 
                         data-pl="Tworzę autorskie gry indie i wspieram produkcje zewnętrznych studiów.<br>I nie tylko." 
@@ -1608,7 +1587,6 @@
                 </div>
 
                 <section class="pillars-grid">
-                    <!-- Karta 1: Zewnętrzne Projekty -->
                     <article class="pillar-card">
                         <div>
                             <span class="pillar-num">01 // CO-DEV & B2B</span>
@@ -1622,7 +1600,6 @@
                         <a href="#zewnetrzne-projekty" class="pillar-link" data-pl="PORTFOLIO B2B ->" data-en="B2B PORTFOLIO ->">PORTFOLIO B2B -></a>
                     </article>
 
-                    <!-- Karta 2: Autorskie Gry -->
                     <article class="pillar-card">
                         <div>
                             <span class="pillar-num">02 // INDIE GAMES</span>
@@ -1636,7 +1613,6 @@
                         <a href="#moje-gry" class="pillar-link" data-pl="SPRAWDŹ KATALOG ->" data-en="VIEW CATALOG ->">SPRAWDŹ KATALOG -></a>
                     </article>
 
-                    <!-- Karta 3: Inne Działalności -->
                     <article class="pillar-card">
                         <div>
                             <span class="pillar-num">03 // MEDIA & INNE</span>
@@ -1651,13 +1627,12 @@
                     </article>
                 </section>
 
-                <!-- Baner Social Media -->
                 <section class="socials-banner">
                     <div class="socials-info">
                         <h3 data-pl="Kulisy pracy i devlogi" data-en="Behind the scenes & devlogs">Kulisy pracy i devlogi</h3>
                         <p data-pl="Śledź postępy nad nowymi projektami i inne materiałami wideo w moich mediach społecznościowych." 
                            data-en="Follow progress on new projects and other video content across social channels.">
-                           Śledź postępy nad nowymi projektami i inne materiałami wideo w moich mediach społecznościowych.
+                           Śledź postępy nad nowymi projektami i inne materiałami wideo w mediach społecznościowych.
                         </p>
                     </div>
                     <div class="social-buttons">
@@ -1677,13 +1652,7 @@
                 </section>
 
             </div>
-            <!-- KONIEC PODSTRONY: HOME -->
 
-
-
-            <!-- ##################################################################
-                 PODSTRONA 2: ZEWNĘTRZNE PROJEKTY (#zewnetrzne-projekty)
-                 ################################################################## -->
             <div id="zewnetrzne-projekty" class="page-view">
 
                 <div class="page-header">
@@ -1698,13 +1667,11 @@
                     </p>
                 </div>
 
-                <!-- 3 kafelki z głównymi działalnościami w gamedev -->
                 <div class="section-label" data-pl="GŁÓWNE KOMPETENCJE GAMEDEV:" data-en="CORE GAMEDEV ROLES:">
                     GŁÓWNE KOMPETENCJE GAMEDEV:
                 </div>
 
                 <div class="roles-grid">
-                    <!-- Kafelek 1: Producent -->
                     <article class="pillar-card">
                         <div>
                             <span class="pillar-num">01 // PROD</span>
@@ -1722,7 +1689,6 @@
                         </div>
                     </article>
 
-                    <!-- Kafelek 2: QA -->
                     <article class="pillar-card">
                         <div>
                             <span class="pillar-num">02 // QA</span>
@@ -1740,7 +1706,6 @@
                         </div>
                     </article>
 
-                    <!-- Kafelek 3: Inne -->
                     <article class="pillar-card">
                         <div>
                             <span class="pillar-num">03 // OTHER</span>
@@ -1759,14 +1724,12 @@
                     </article>
                 </div>
 
-                <!-- Oś czasu (Timeline) -->
                 <div class="section-label" data-pl="OŚ CZASU // PROJEKTY I STANOWISKA:" data-en="TIMELINE // PROJECTS & ROLES:">
                     OŚ CZASU // PROJEKTY I STANOWISKA:
                 </div>
 
                 <div class="timeline">
 
-                    <!-- WPIS 1: THE LIGHTKEEPERS -->
                     <a href="#projekt-lightkeepers" class="timeline-item studio-spectral">
                         <div class="timeline-thumb">
                             <img src="assets/lightkeepers.jpg" loading="lazy" alt="The Lightkeepers" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
@@ -1811,7 +1774,6 @@
                         </div>
                     </a>
 
-                    <!-- WPIS 2: MEDIEVAL DYNASTY NEW SETTLEMENT -->
                     <a href="#projekt-mdns" class="timeline-item studio-spectral">
                         <div class="timeline-thumb">
                             <img src="assets/mdns.jpg" loading="lazy" alt="Medieval Dynasty New Settlement" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
@@ -1856,7 +1818,6 @@
                         </div>
                     </a>
 
-                    <!-- WPIS 3: BULLETSTORM VR -->
                     <a href="#projekt-bulletstorm" class="timeline-item studio-incuvo">
                         <div class="timeline-thumb">
                             <img src="assets/bulletstorm-vr.jpg" loading="lazy" alt="Bulletstorm VR" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
@@ -1903,7 +1864,6 @@
                         </div>
                     </a>
 
-                    <!-- WPIS 4: GREEN HELL VR -->
                     <a href="#projekt-ghvr" class="timeline-item studio-incuvo">
                         <div class="timeline-thumb">
                             <img src="assets/green-hell-vr.jpg" loading="lazy" alt="Green Hell VR" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
@@ -1950,57 +1910,10 @@
                         </div>
                     </a>
 
-                    <!-- WPIS 5: BLAIR WITCH VR -->
-                    <a href="#projekt-blairwitch" class="timeline-item studio-incuvo">
-                        <div class="timeline-thumb">
-                            <img src="assets/blair-witch-vr.jpg" loading="lazy" alt="Blair Witch VR" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
-                            <span class="img-placeholder-label">[ assets/blair-witch-vr.jpg // 16:9 ]</span>
-                        </div>
-                        <div class="timeline-header">
-                            <span class="timeline-date">2021</span>
-                            <div class="timeline-header-badges">
-                                <span class="badge" data-pl="WYDANA GRA" data-en="RELEASED">WYDANA GRA</span>
-                            </div>
-                        </div>
-                        <h3 class="timeline-title">Blair Witch VR</h3>
-                        <div class="timeline-role-org">
-                            <span class="timeline-role" data-pl="QA Lead" data-en="QA Lead">QA Lead</span>
-                            <span>//</span>
-                            <span class="studio-badge">Incuvo</span>
-                        </div>
-
-                        <div class="platform-row">
-                            <span class="platform-label" data-pl="Platformy:" data-en="Platforms:">Platformy:</span>
-                            <span class="platform-pill">Meta Quest</span>
-                            <span class="platform-pill">PCVR</span>
-                            <span class="platform-pill">PSVR</span>
-                        </div>
-
-                        <p class="timeline-desc" 
-                           data-pl="Psychologiczny horror w rzeczywistości wirtualnej. Koordynacja testów funkcjonalnych, weryfikacja komfortu VR oraz wsparcie certyfikacji na platformach Oculus/Meta, Steam i PlayStation." 
-                           data-en="Psychological horror experience in virtual reality. Coordinating functional QA, VR comfort verification, and platform certification across Meta, Steam, and PlayStation.">
-                           Psychologiczny horror w rzeczywistości wirtualnej. Koordynacja testów funkcjonalnych, weryfikacja komfortu VR oraz wsparcie certyfikacji na platformach Oculus/Meta, Steam i PlayStation.
-                        </p>
-
-                        <div class="timeline-footer">
-                            <div class="tag-list">
-                                <span class="badge">Horror</span>
-                                <span class="badge">Singleplayer</span>
-                            </div>
-                            <span class="timeline-more" data-pl="SZCZEGÓŁY ->" data-en="DETAILS ->">SZCZEGÓŁY -></span>
-                        </div>
-                    </a>
-
                 </div>
 
             </div>
-            <!-- KONIEC PODSTRONY: ZEWNĘTRZNE PROJEKTY -->
 
-
-
-            <!-- ##################################################################
-                 PODSTRONA 3: MOJE GRY (#moje-gry)
-                 ################################################################## -->
             <div id="moje-gry" class="page-view">
 
                 <div class="page-header">
@@ -2017,7 +1930,6 @@
 
                 <div class="cards-grid-2">
 
-                    <!-- GRA 1: PROJECT: PAPER -->
                     <a href="#gra-project-paper" class="item-card">
                         <div>
                             <div class="card-thumb">
@@ -2040,13 +1952,7 @@
                 </div>
 
             </div>
-            <!-- KONIEC PODSTRONY: MOJE GRY -->
 
-
-
-            <!-- ##################################################################
-                 PODSTRONA 4: INNE DZIAŁALNOŚCI (#inne-dzialalnosci)
-                 ################################################################## -->
             <div id="inne-dzialalnosci" class="page-view">
 
                 <div class="page-header">
@@ -2103,13 +2009,7 @@
                 </div>
 
             </div>
-            <!-- KONIEC PODSTRONY: INNE DZIAŁALNOŚCI -->
 
-
-
-            <!-- ##################################################################
-                 PODSTRONA 5: KONTAKT (#kontakt)
-                 ################################################################## -->
             <div id="kontakt" class="page-view narrow-view">
 
                 <div class="page-header">
@@ -2128,8 +2028,12 @@
                     <div>
                         <span class="pillar-num" data-pl="BEZPOŚREDNI ADRES E-MAIL:" data-en="DIRECT E-MAIL:">BEZPOŚREDNI ADRES E-MAIL:</span>
 
-                        <div>
-                            <a href="mailto:pisulagames@gmail.com" class="contact-mail">pisulagames@gmail.com</a>
+                        <div class="contact-mail-wrapper">
+                            <a href="mailto:pisulagames@gmail.com" id="email-text" class="contact-mail">pisulagames@gmail.com</a>
+                            <button type="button" id="copy-email-btn" class="copy-email-btn" aria-label="Skopiuj adres e-mail">
+                                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                                <span id="copy-btn-label" data-pl="SKOPIUJ" data-en="COPY">SKOPIUJ</span>
+                            </button>
                         </div>
 
                         <p class="pillar-text" 
@@ -2168,22 +2072,13 @@
                 </div>
 
             </div>
-            <!-- KONIEC PODSTRONY: KONTAKT -->
-
 
         </div>
     </main>
 
-
-    <!-- ==========================================================================
-         ==========================================================================
-         WYSKAKUJĄCE OKNA MODALNE (OTWIERAJĄ SIĘ NAD STRONĄ PO KLIKNIĘCIU PROJEKTU)
-         ==========================================================================
-         ========================================================================== -->
     <div id="project-modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true">
         <div id="project-modal-window" class="modal-window">
             
-            <!-- Przyklejony górny pasek okna z etykietą i przyciskiem [X] -->
             <div class="modal-top-bar">
                 <span id="modal-dynamic-tag" class="page-tag"></span>
                 <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Zamknij okno">
@@ -2192,8 +2087,6 @@
                 </button>
             </div>
 
-
-            <!-- ======= TREŚĆ OKNA 1: PROJECT: PAPER (#gra-project-paper) ======= -->
             <div id="gra-project-paper" class="modal-content-item" data-parent-tab="moje-gry" data-studio-class="" data-tag-pl="<span>PLAYDATE // LUA // 1-BIT</span>" data-tag-en="<span>PLAYDATE // LUA // 1-BIT</span>">
                 <h1 class="page-title">Project: Paper</h1>
 
@@ -2232,8 +2125,6 @@
                 </div>
             </div>
 
-
-            <!-- ======= TREŚĆ OKNA 2: THE LIGHTKEEPERS (#projekt-lightkeepers) ======= -->
             <div id="projekt-lightkeepers" class="modal-content-item" data-parent-tab="zewnetrzne-projekty" data-studio-class="studio-spectral" data-tag-pl="<span>SPECTRAL GAMES //</span> <span class='tag-date-nowrap'>2024 — 2026</span>" data-tag-en="<span>SPECTRAL GAMES //</span> <span class='tag-date-nowrap'>2024 — 2026</span>">
                 <h1 class="page-title">The Lightkeepers</h1>
 
@@ -2271,8 +2162,6 @@
                 </div>
             </div>
 
-
-            <!-- ======= TREŚĆ OKNA 3: MEDIEVAL DYNASTY NEW SETTLEMENT (#projekt-mdns) ======= -->
             <div id="projekt-mdns" class="modal-content-item" data-parent-tab="zewnetrzne-projekty" data-studio-class="studio-spectral" data-tag-pl="<span>SPECTRAL GAMES //</span> <span class='tag-date-nowrap'>2023 — 2026</span>" data-tag-en="<span>SPECTRAL GAMES //</span> <span class='tag-date-nowrap'>2023 — 2026</span>">
                 <h1 class="page-title">Medieval Dynasty New Settlement</h1>
 
@@ -2310,8 +2199,6 @@
                 </div>
             </div>
 
-
-            <!-- ======= TREŚĆ OKNA 4: BULLETSTORM VR (#projekt-bulletstorm) ======= -->
             <div id="projekt-bulletstorm" class="modal-content-item" data-parent-tab="zewnetrzne-projekty" data-studio-class="studio-incuvo" data-tag-pl="<span>INCUVO & PEOPLE CAN FLY //</span> <span class='tag-date-nowrap'>2022 — 2023</span>" data-tag-en="<span>INCUVO & PEOPLE CAN FLY //</span> <span class='tag-date-nowrap'>2022 — 2023</span>">
                 <h1 class="page-title">Bulletstorm VR</h1>
 
@@ -2349,8 +2236,6 @@
                 </div>
             </div>
 
-
-            <!-- ======= TREŚĆ OKNA 5: GREEN HELL VR (#projekt-ghvr) ======= -->
             <div id="projekt-ghvr" class="modal-content-item" data-parent-tab="zewnetrzne-projekty" data-studio-class="studio-incuvo" data-tag-pl="<span>INCUVO //</span> <span class='tag-date-nowrap'>2021 — 2023</span>" data-tag-en="<span>INCUVO //</span> <span class='tag-date-nowrap'>2021 — 2023</span>">
                 <h1 class="page-title">Green Hell VR</h1>
 
@@ -2388,8 +2273,6 @@
                 </div>
             </div>
 
-
-            <!-- ======= TREŚĆ OKNA 6: BLAIR WITCH VR (#projekt-blairwitch) ======= -->
             <div id="projekt-blairwitch" class="modal-content-item" data-parent-tab="zewnetrzne-projekty" data-studio-class="studio-incuvo" data-tag-pl="<span>INCUVO //</span> <span class='tag-date-nowrap'>2021</span>" data-tag-en="<span>INCUVO //</span> <span class='tag-date-nowrap'>2021</span>">
                 <h1 class="page-title">Blair Witch VR</h1>
 
@@ -2408,8 +2291,8 @@
                         <strong>Meta Quest / PCVR / PSVR</strong>
                     </div>
                     <div class="spec-item">
-                        <span data-pl="GATUNEK" data-en="GENRE">GATUNEK</span>
-                        <strong>Horror / Singleplayer</strong>
+                        <span data-pl="OCENA META QUEST" data-en="META QUEST RATING">OCENA META QUEST</span>
+                        <strong data-rating-full="blairwitch">★ 4.0</strong>
                     </div>
                 </div>
 
@@ -2430,11 +2313,7 @@
         </div>
     </div>
 
-
-    <!-- ==========================================================================
-         INFORMACJA O PAMIĘCI PRZEGLĄDARKI (COOKIES / LOCALSTORAGE NOTICE)
-         ========================================================================== -->
-    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Informacja o plikach cookie">
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Informacja o pamięci lokalnej">
         <p data-pl="Strona nie używa plików śledzących ani reklam. Korzystamy wyłącznie z pamięci lokalnej przeglądarki do zapamiętania wybranego języka i motywu." 
            data-en="This site uses no tracking cookies or ads. Browser local storage is used solely to remember your chosen language and theme.">
            Strona nie używa plików śledzących ani reklam. Korzystamy wyłącznie z pamięci lokalnej przeglądarki do zapamiętania wybranego języka i motywu.
@@ -2442,10 +2321,6 @@
         <button type="button" id="cookie-accept-btn" class="cookie-accept-btn" data-pl="ROZUMIEM" data-en="GOT IT">ROZUMIEM</button>
     </div>
 
-
-    <!-- ==========================================================================
-         STOPKA (PRZYPIĘTA NA DOLE EKRANU)
-         ========================================================================== -->
     <footer>
         <div class="container footer-inner">
             <div>
@@ -2458,15 +2333,9 @@
         </div>
     </footer>
 
-
-    <!-- ==========================================================================
-         SKRYPTY JS: ZAKŁADKI, OKNA MODALNE, AUTOMATYCZNE OCENY META, JĘZYK I MOTYW
-         ========================================================================== -->
     <script>
-        // 1. Automatyczna aktualizacja roku w stopce
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // 2. Obsługa komunikatu o pamięci lokalnej / cookies
         const cookieBanner = document.getElementById('cookie-banner');
         const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
 
@@ -2479,13 +2348,36 @@
             cookieBanner.classList.remove('visible');
         });
 
-        // 3. Cień pod paskiem nawigacji po przewinięciu strony
+        // Obsługa kopiowania adresu e-mail
+        const copyEmailBtn = document.getElementById('copy-email-btn');
+        const emailTextEl = document.getElementById('email-text');
+        const copyBtnLabel = document.getElementById('copy-btn-label');
+
+        if (copyEmailBtn && emailTextEl) {
+            copyEmailBtn.addEventListener('click', async () => {
+                const email = emailTextEl.textContent.trim();
+                try {
+                    await navigator.clipboard.writeText(email);
+                    const originalHtml = copyBtnLabel.innerHTML;
+                    const currentLang = document.documentElement.lang || 'pl';
+                    copyBtnLabel.textContent = currentLang === 'pl' ? 'SKOPIOWANO!' : 'COPIED!';
+                    copyEmailBtn.classList.add('copied');
+
+                    setTimeout(() => {
+                        copyBtnLabel.innerHTML = originalHtml;
+                        copyEmailBtn.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Błąd kopiowania do schowka', err);
+                }
+            });
+        }
+
         const mainNavBar = document.getElementById('main-nav-bar');
         window.addEventListener('scroll', () => {
             mainNavBar.classList.toggle('is-stuck', window.scrollY > 180);
         }, { passive: true });
 
-        // 4. Pobieranie aktualnych ocen z pliku assets/ratings.json
         function formatReviewCount(count) {
             if (!count || isNaN(count)) return '';
             if (count >= 1000) {
@@ -2521,14 +2413,11 @@
                         el.textContent = `★ ${Number(data.score).toFixed(1)}${countText}`;
                     }
                 });
-            } catch (err) {
-                // Zostają wartości domyślne z HTML
-            }
+            } catch (err) {}
         }
 
         loadMetaRatings();
 
-        // 5. Obsługa głównych zakładek oraz wyskakujących okien modalnych
         const views = document.querySelectorAll('.page-view');
         const navLinks = document.querySelectorAll('.nav-link');
         const modalBackdrop = document.getElementById('project-modal-backdrop');
@@ -2636,7 +2525,6 @@
             }
         });
 
-        // 6. Obsługa języków (PL dla Polski, EN dla reszty świata)
         const langButtons = document.querySelectorAll('.lang-btn');
 
         function setLanguage(lang) {
@@ -2669,7 +2557,6 @@
             });
         });
 
-        // 7. Obsługa motywu (Domyślnie ciemny: #1C1917)
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeLabel = document.getElementById('theme-label');
 
@@ -2698,7 +2585,6 @@
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
 
-        // 8. Obsługa wskaźników przewijania paska nawigacji na urządzeniach mobilnych
         const navListEl = document.getElementById('nav-list');
         const navHintLeft = document.getElementById('nav-hint-left');
         const navHintRight = document.getElementById('nav-hint-right');
@@ -2739,18 +2625,24 @@
             navScrollThumb.style.transform = `translateX(${scrollProgress * maxTranslate}%)`;
         }
 
-        navHintRight.addEventListener('click', () => {
-            navListEl.scrollBy({ left: 160, behavior: 'smooth' });
-        });
+        if (navHintRight) {
+            navHintRight.addEventListener('click', () => {
+                navListEl.scrollBy({ left: 160, behavior: 'smooth' });
+            });
+        }
 
-        navHintLeft.addEventListener('click', () => {
-            navListEl.scrollBy({ left: -160, behavior: 'smooth' });
-        });
+        if (navHintLeft) {
+            navHintLeft.addEventListener('click', () => {
+                navListEl.scrollBy({ left: -160, behavior: 'smooth' });
+            });
+        }
 
-        navListEl.addEventListener('scroll', updateNavScrollHints, { passive: true });
-        window.addEventListener('resize', updateNavScrollHints);
-        langButtons.forEach(btn => btn.addEventListener('click', () => setTimeout(updateNavScrollHints, 50)));
-        setTimeout(updateNavScrollHints, 100);
+        if (navListEl) {
+            navListEl.addEventListener('scroll', updateNavScrollHints, { passive: true });
+            window.addEventListener('resize', updateNavScrollHints);
+            langButtons.forEach(btn => btn.addEventListener('click', () => setTimeout(updateNavScrollHints, 50)));
+            setTimeout(updateNavScrollHints, 100);
+        }
     </script>
 </body>
 </html>
