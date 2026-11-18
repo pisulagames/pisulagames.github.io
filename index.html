@@ -303,6 +303,13 @@
             background-color: var(--accent);
         }
 
+        @media (min-width: 769px) {
+            .nav-scroll-hint,
+            .nav-scroll-track {
+                display: none;
+            }
+        }
+
         /* ==========================================================================
            5. SYSTEM ZAKŁADEK GŁÓWNYCH I ELEMENTY WSPÓLNE
            ========================================================================== */
@@ -845,7 +852,6 @@
             }
         }
 
-        /* Przyklejony na stałe górny pasek w oknie modalnym (zawsze dostępny przycisk [X]) */
         .modal-top-bar {
             position: sticky;
             top: 0;
@@ -883,7 +889,6 @@
             white-space: nowrap;
         }
 
-        /* Przycisk zamknięcia z czerwonym X i zwijaniem napisu po przewinięciu */
         .modal-close-btn {
             display: inline-flex;
             align-items: center;
@@ -1203,16 +1208,22 @@
                 padding: 0 10px;
             }
 
-            /* Pasek nawigacji na mobile: zawsze przyklejony u góry (sticky) jako przewijane pigułki */
+            /* Pasek nawigacji na mobile: przyklejony + wizualna sugestia przewijania (fade + strzałki >>) */
             .main-nav-bar {
                 position: sticky;
                 top: 0;
                 z-index: 100;
-                padding: 9px 0;
+                padding: 9px 0 7px;
                 background-color: var(--bg-glass);
             }
             .main-nav-bar .container {
-                padding: 0 12px;
+                padding: 0;
+                position: relative;
+            }
+            .nav-scroll-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
             }
             .nav-list {
                 display: flex;
@@ -1220,12 +1231,29 @@
                 align-items: center;
                 gap: 7px;
                 overflow-x: auto;
-                scrollbar-width: none; /* Firefox */
+                scrollbar-width: none;
                 -ms-overflow-style: none;
-                padding: 2px 4px;
+                padding: 2px 34px 4px 14px;
+                scroll-behavior: smooth;
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14px, black calc(100% - 34px), transparent 100%);
+                mask-image: linear-gradient(to right, transparent 0%, black 14px, black calc(100% - 34px), transparent 100%);
+            }
+            .nav-list.at-start {
+                -webkit-mask-image: linear-gradient(to right, black 0%, black calc(100% - 34px), transparent 100%);
+                mask-image: linear-gradient(to right, black 0%, black calc(100% - 34px), transparent 100%);
+            }
+            .nav-list.at-end {
+                padding-right: 14px;
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 28px, black 100%);
+                mask-image: linear-gradient(to right, transparent 0%, black 28px, black 100%);
+            }
+            .nav-list.no-overflow {
+                -webkit-mask-image: none;
+                mask-image: none;
+                padding: 2px 14px;
             }
             .nav-list::-webkit-scrollbar {
-                display: none; /* Chrome/Safari */
+                display: none;
             }
             .nav-link {
                 text-align: center;
@@ -1243,6 +1271,61 @@
             }
             .nav-link.active::after {
                 display: none;
+            }
+
+            /* Pulsujące strzałki podpowiadające kierunek przewijania */
+            .nav-scroll-hint {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 5;
+                font-family: var(--font-body);
+                font-size: 0.78rem;
+                font-weight: 800;
+                color: var(--accent);
+                background: none;
+                border: none;
+                padding: 6px 8px;
+                cursor: pointer;
+                pointer-events: auto;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+            .nav-scroll-hint.visible {
+                opacity: 1;
+            }
+            .nav-scroll-hint.hint-right {
+                right: 2px;
+                animation: nudgeRight 1.4s ease-in-out infinite;
+            }
+            .nav-scroll-hint.hint-left {
+                left: 2px;
+                animation: nudgeLeft 1.4s ease-in-out infinite;
+            }
+            @keyframes nudgeRight {
+                0%, 100% { transform: translate(0, -50%); }
+                50% { transform: translate(3px, -50%); }
+            }
+            @keyframes nudgeLeft {
+                0%, 100% { transform: translate(0, -50%); }
+                50% { transform: translate(-3px, -50%); }
+            }
+
+            /* Cienki wskaźnik postępu przewinięcia pod pigułkami */
+            .nav-scroll-track {
+                height: 2px;
+                width: calc(100% - 28px);
+                margin: 3px auto 0;
+                background-color: var(--border);
+                border-radius: 2px;
+                overflow: hidden;
+            }
+            .nav-scroll-thumb {
+                height: 100%;
+                width: 40%;
+                background-color: var(--accent);
+                border-radius: 2px;
+                transition: transform 0.1s ease-out, width 0.15s ease-out;
             }
 
             .main-wrapper {
@@ -1463,27 +1546,34 @@
 
 
     <!-- ==========================================================================
-         PASEK NAWIGACJI (PRZYKLEJONY NA STAŁE PRZY PRZEWIJANIU)
+         PASEK NAWIGACJI (PRZYKLEJONY NA STAŁE + WSKAŹNIKI PRZEWIJANIA NA MOBILE)
          ========================================================================== -->
     <nav id="main-nav-bar" class="main-nav-bar">
         <div class="container">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active" data-target="home" data-pl="HOME" data-en="HOME">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#zewnetrzne-projekty" class="nav-link" data-target="zewnetrzne-projekty" data-pl="ZEWNĘTRZNE PROJEKTY" data-en="EXTERNAL PROJECTS">ZEWNĘTRZNE PROJEKTY</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#moje-gry" class="nav-link" data-target="moje-gry" data-pl="MOJE GRY" data-en="MY GAMES">MOJE GRY</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#inne-dzialalnosci" class="nav-link" data-target="inne-dzialalnosci" data-pl="INNE DZIAŁALNOŚCI" data-en="OTHER ACTIVITIES">INNE DZIAŁALNOŚCI</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#kontakt" class="nav-link" data-target="kontakt" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
-                </li>
-            </ul>
+            <div class="nav-scroll-wrapper">
+                <button type="button" id="nav-hint-left" class="nav-scroll-hint hint-left" aria-label="Przewiń w lewo">&lt;&lt;</button>
+                <ul id="nav-list" class="nav-list at-start">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active" data-target="home" data-pl="HOME" data-en="HOME">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#zewnetrzne-projekty" class="nav-link" data-target="zewnetrzne-projekty" data-pl="ZEWNĘTRZNE PROJEKTY" data-en="EXTERNAL PROJECTS">ZEWNĘTRZNE PROJEKTY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#moje-gry" class="nav-link" data-target="moje-gry" data-pl="MOJE GRY" data-en="MY GAMES">MOJE GRY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#inne-dzialalnosci" class="nav-link" data-target="inne-dzialalnosci" data-pl="INNE DZIAŁALNOŚCI" data-en="OTHER ACTIVITIES">INNE DZIAŁALNOŚCI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#kontakt" class="nav-link" data-target="kontakt" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+                    </li>
+                </ul>
+                <button type="button" id="nav-hint-right" class="nav-scroll-hint hint-right" aria-label="Przewiń w prawo">&gt;&gt;</button>
+            </div>
+            <div id="nav-scroll-track" class="nav-scroll-track">
+                <div id="nav-scroll-thumb" class="nav-scroll-thumb"></div>
+            </div>
         </div>
     </nav>
 
@@ -2462,7 +2552,6 @@
                 const isActive = link.getAttribute('data-target') === activeTab;
                 link.classList.toggle('active', isActive);
                 if (isActive) {
-                    // Wyśrodkowanie aktywnej zakładki na przewijanym pasku mobilnym
                     link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 }
             });
@@ -2510,7 +2599,6 @@
             }
         }
 
-        // Wykrywanie przewijania wewnątrz okna modalnego (zwija przycisk [X] na mobile)
         modalWindow.addEventListener('scroll', () => {
             modalWindow.classList.toggle('is-scrolled', modalWindow.scrollTop > 30);
         }, { passive: true });
@@ -2609,6 +2697,60 @@
             const currentTheme = document.documentElement.getAttribute('data-theme');
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
+
+        // 8. Obsługa wskaźników przewijania paska nawigacji na urządzeniach mobilnych
+        const navListEl = document.getElementById('nav-list');
+        const navHintLeft = document.getElementById('nav-hint-left');
+        const navHintRight = document.getElementById('nav-hint-right');
+        const navScrollTrack = document.getElementById('nav-scroll-track');
+        const navScrollThumb = document.getElementById('nav-scroll-thumb');
+
+        function updateNavScrollHints() {
+            if (!navListEl) return;
+            const maxScroll = navListEl.scrollWidth - navListEl.clientWidth;
+
+            if (maxScroll <= 4) {
+                navListEl.classList.add('no-overflow');
+                navHintLeft.classList.remove('visible');
+                navHintRight.classList.remove('visible');
+                if (navScrollTrack) navScrollTrack.style.display = 'none';
+                return;
+            }
+
+            navListEl.classList.remove('no-overflow');
+            if (navScrollTrack) navScrollTrack.style.display = '';
+
+            const currentScroll = navListEl.scrollLeft;
+            const atStart = currentScroll <= 6;
+            const atEnd = currentScroll >= maxScroll - 6;
+
+            navListEl.classList.toggle('at-start', atStart);
+            navListEl.classList.toggle('at-end', atEnd);
+
+            navHintLeft.classList.toggle('visible', !atStart);
+            navHintRight.classList.toggle('visible', !atEnd);
+
+            const visibleRatio = navListEl.clientWidth / navListEl.scrollWidth;
+            const thumbWidthPct = Math.max(25, Math.round(visibleRatio * 100));
+            const scrollProgress = currentScroll / maxScroll;
+            const maxTranslate = (100 - thumbWidthPct) / thumbWidthPct * 100;
+
+            navScrollThumb.style.width = `${thumbWidthPct}%`;
+            navScrollThumb.style.transform = `translateX(${scrollProgress * maxTranslate}%)`;
+        }
+
+        navHintRight.addEventListener('click', () => {
+            navListEl.scrollBy({ left: 160, behavior: 'smooth' });
+        });
+
+        navHintLeft.addEventListener('click', () => {
+            navListEl.scrollBy({ left: -160, behavior: 'smooth' });
+        });
+
+        navListEl.addEventListener('scroll', updateNavScrollHints, { passive: true });
+        window.addEventListener('resize', updateNavScrollHints);
+        langButtons.forEach(btn => btn.addEventListener('click', () => setTimeout(updateNavScrollHints, 50)));
+        setTimeout(updateNavScrollHints, 100);
     </script>
 </body>
 </html>
