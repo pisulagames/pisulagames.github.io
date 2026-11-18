@@ -23,7 +23,7 @@ jobs:
           import re
 
           APPS = {
-              "lightkeepers": "https://www.meta.com/pl-pl/experiences/the-lightkeepers-protect-the-lighthouse/27856043040707456",
+              "lightkeepers": "https://www.meta.com/pl-pl/experiences/the-lightkeepers-protect-the-lighthouse/27856043040707456/",
               "mdns": "https://www.meta.com/pl-pl/experiences/medieval-dynasty-new-settlement/5900444653303887/",
               "bulletstorm": "https://www.meta.com/pl-pl/experiences/bulletstorm-vr/6565887093433499/",
               "ghvr": "https://www.meta.com/pl-pl/experiences/green-hell-vr/3815577785147028/",
