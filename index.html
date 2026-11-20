@@ -82,13 +82,17 @@
             overflow: hidden;
         }
 
+        .is-hidden {
+            display: none !important;
+        }
+
         img {
             max-width: 100%;
             height: auto;
             display: block;
         }
 
-        h1, h2, h3, .logo-title, .nav-link, .btn, .pillar-link, .social-btn, .modal-close-btn, .timeline-title {
+        h1, h2, h3, .logo-title, .nav-link, .btn, .pillar-link, .social-btn, .modal-close-btn, .timeline-title, .cta-btn {
             font-family: var(--font-display);
             font-synthesis: none;
         }
@@ -261,8 +265,8 @@
 
         .nav-link {
             display: block;
-            padding: 15px 22px;
-            font-size: 1rem;
+            padding: 15px 18px;
+            font-size: 0.96rem;
             font-weight: 800;
             letter-spacing: 0.02em;
             color: var(--text);
@@ -385,6 +389,232 @@
             margin-bottom: 0;
         }
 
+        .about-intro-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+            align-items: stretch;
+        }
+
+        .about-photo-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--surface);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 290px;
+            position: relative;
+        }
+
+        .about-photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            display: block;
+        }
+
+        .about-bio-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--bg);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-bio-body p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .about-bio-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: stretch;
+        }
+
+        .about-edu-card {
+            grid-row: span 2;
+        }
+
+        .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 14px;
+        }
+
+        .edu-item {
+            padding-left: 16px;
+            border-left: 2px solid var(--accent);
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            margin-bottom: 6px;
+        }
+
+        .edu-title {
+            font-family: var(--font-display);
+            font-size: 1.08rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .edu-period {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .edu-degree {
+            font-family: var(--font-body);
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .edu-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .edu-thesis {
+            margin-top: 12px;
+            padding: 11px 13px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background-color: var(--surface);
+            font-size: 0.79rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        .edu-thesis strong {
+            color: var(--text);
+        }
+
+        .edu-qual-list {
+            list-style: none;
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            font-size: 0.79rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .edu-qual-list strong {
+            color: var(--accent);
+        }
+
+        .tools-group {
+            margin-top: 14px;
+        }
+
+        .tools-group:first-of-type {
+            margin-top: 6px;
+        }
+
+        .tools-group-label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .tools-group .tag-list {
+            margin-top: 0;
+        }
+
+        .hardware-groups {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .hardware-group-label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .hardware-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 0.84rem;
+            color: var(--text);
+        }
+
+        .hardware-list li {
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .hardware-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .hardware-sub {
+            color: var(--text-muted);
+            font-size: 0.77rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            background-color: var(--accent);
+            color: #1C1917;
+            font-size: 0.96rem;
+            font-weight: 800;
+            white-space: nowrap;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .cta-btn:hover {
+            box-shadow: 4px 4px 0px var(--text);
+            transform: translate(-2px, -2px);
+        }
+
         .pillars-grid, .roles-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -400,7 +630,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
 
         .pillar-card, .item-card {
@@ -491,7 +721,8 @@
         .card-thumb.is-empty .img-placeholder-label,
         .timeline-thumb.is-empty .img-placeholder-label,
         .project-hero-media.is-empty .img-placeholder-label,
-        .carousel-stage.is-empty .img-placeholder-label {
+        .carousel-stage.is-empty .img-placeholder-label,
+        .about-photo-card.is-empty .img-placeholder-label {
             display: block;
         }
 
@@ -1086,6 +1317,11 @@
             gap: 12px;
         }
 
+        .modal-cta-text {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
         .modal-cta-row .pillar-link {
             margin-top: 0;
             padding-top: 0;
@@ -1118,6 +1354,10 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+        }
+
+        .contact-socials {
+            margin-top: 20px;
         }
 
         .social-btn {
@@ -1312,9 +1552,13 @@
         @media (max-width: 900px) {
             .pillars-grid,
             .cards-grid-2,
+            .about-bento-grid,
             .contact-box {
                 grid-template-columns: 1fr;
                 gap: 16px;
+            }
+            .about-edu-card {
+                grid-row: auto;
             }
             .company-details {
                 border-left: none;
@@ -1472,6 +1716,38 @@
                 padding: 24px 20px;
                 margin-bottom: 28px;
             }
+
+            .about-intro-grid {
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                background-color: var(--bg);
+                padding: 20px;
+                display: grid;
+                grid-template-columns: 92px 1fr;
+                gap: 16px;
+                align-items: center;
+                margin-bottom: 16px;
+            }
+            .about-photo-card {
+                width: 92px;
+                height: 120px;
+                min-height: 0;
+                border-radius: 8px;
+            }
+            .about-photo-card .img-placeholder-label {
+                font-size: 0.6rem;
+                padding: 0 4px;
+            }
+            .about-bio-card {
+                display: contents;
+            }
+            .about-bio-header .pillar-title {
+                margin-bottom: 0;
+            }
+            .about-bio-body {
+                grid-column: 1 / -1;
+            }
+
             .hero-title, .page-title {
                 font-size: 1.48rem;
                 line-height: 1.28;
@@ -1608,6 +1884,9 @@
                 padding: 12px 14px;
                 font-size: 0.92rem;
             }
+            .cta-btn {
+                width: 100%;
+            }
             .cookie-banner {
                 bottom: 46px;
                 flex-direction: column;
@@ -1676,9 +1955,9 @@
                 <div>
                     <div class="logo-title">Pisula <span>Games</span></div>
                     <div class="logo-subtitle" 
-                         data-pl="GAMEDEV // PRODUKCJA // VR" 
-                         data-en="GAMEDEV // PRODUCTION // VR">
-                         GAMEDEV // PRODUKCJA // VR
+                         data-pl="GAMEDEV // VR // VIDEO" 
+                         data-en="GAMEDEV // VR // VIDEO">
+                         GAMEDEV // VR // VIDEO
                     </div>
                 </div>
             </a>
@@ -1692,6 +1971,9 @@
                 <ul id="nav-list" class="nav-list at-start">
                     <li class="nav-item">
                         <a href="#home" class="nav-link active" data-target="home" data-pl="HOME" data-en="HOME">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#o-mnie" class="nav-link" data-target="o-mnie" data-pl="O MNIE" data-en="ABOUT ME">O MNIE</a>
                     </li>
                     <li class="nav-item">
                         <a href="#zewnetrzne-projekty" class="nav-link" data-target="zewnetrzne-projekty" data-pl="ZEWNĘTRZNE PROJEKTY" data-en="EXTERNAL PROJECTS">ZEWNĘTRZNE PROJEKTY</a>
@@ -1725,9 +2007,9 @@
                         Tworzę autorskie gry indie i wspieram produkcje zewnętrznych studiów.<br>I nie tylko.
                     </h1>
                     <p class="hero-desc" 
-                       data-pl="Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu grafiki, fotografii oraz wideo." 
-                       data-en="Independent game development studio and B2B services. Experienced in shipping titles across PC (Steam), PlayStation, and Meta Quest — with a strong focus on Virtual Reality (VR). I also take on projects in graphic design, photography, and video production.">
-                       Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu grafiki, fotografii oraz wideo.
+                       data-pl="Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu grafiki i wideo." 
+                       data-en="Independent game development studio and B2B services. Experienced in shipping titles across PC (Steam), PlayStation, and Meta Quest — with a strong focus on Virtual Reality (VR). I also take on projects in graphic design and video production.">
+                       Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu grafiki i wideo.
                     </p>
                 </section>
 
@@ -1778,7 +2060,7 @@
 
                 <section class="socials-banner">
                     <div class="socials-info">
-                        <h3 data-pl="Kulisy pracy i devlogi" data-en="Behind the scenes & devlogs">Kulisy pracy i devlogi</h3>
+                        <h3 data-pl="Kulisy pracy" data-en="Behind the scenes">Kulisy pracy</h3>
                         <p data-pl="Śledź postępy nad nowymi projektami oraz pozostałe materiały wideo w moich mediach społecznościowych." 
                            data-en="Follow progress on new projects and other video content across my social channels.">
                            Śledź postępy nad nowymi projektami oraz pozostałe materiały wideo w moich mediach społecznościowych.
@@ -1798,6 +2080,211 @@
                             <span>Instagram</span>
                         </a>
                     </div>
+                </section>
+
+            </div>
+
+            <div id="o-mnie" class="page-view">
+
+                <div class="page-header">
+                    <span class="page-tag" data-pl="O MNIE // PROFIL & DOŚWIADCZENIE" data-en="ABOUT ME // PROFILE & EXPERIENCE">
+                        O MNIE // PROFIL & DOŚWIADCZENIE
+                    </span>
+                    <h1 class="page-title" data-pl="O mnie" data-en="About Me">O mnie</h1>
+                    <p class="page-lead" 
+                       data-pl="Gracz, producent gier VR, pasjonat technologii i niezależny twórca. Poznaj moje zaplecze produkcyjne, wykształcenie oraz narzędzia i sprzęt, na których pracuję na co dzień." 
+                       data-en="Gamer, VR game producer, tech enthusiast, and independent creator. Explore my production background, education, and the tools and hardware I work with every day.">
+                       Gracz, producent gier VR, pasjonat technologii i niezależny twórca. Poznaj moje zaplecze produkcyjne, wykształcenie oraz narzędzia i sprzęt, na których pracuję na co dzień.
+                    </p>
+                </div>
+
+                <section class="about-intro-grid">
+                    <div class="about-photo-card">
+                        <img src="assets/o-mnie.jpg" loading="lazy" alt="Konrad Pisula" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
+                        <span class="img-placeholder-label">[ assets/o-mnie.jpg ]</span>
+                    </div>
+
+                    <div class="about-bio-card">
+                        <div class="about-bio-header">
+                            <span class="pillar-num">01 // BIO</span>
+                            <h2 class="pillar-title">Konrad Pisula</h2>
+                        </div>
+                        <div class="about-bio-body">
+                            <p data-pl="Z grami wideo jestem związany od najmłodszych lat — wychowany zarówno na PC, jak i na konsolach. Wciąż aktywnie gram, śledzę branżę i dobrze orientuję się w aktualnych trendach. Posiadam ponad 5-letnie doświadczenie w produkcji gier, a najlepiej czuję się w środowisku wirtualnej rzeczywistości (VR), z którym pracuję od samego początku swojej kariery."
+                               data-en="I have been connected with video games from an early age — raised on both PC and consoles. Still an active gamer, I closely follow the industry and stay up to date with current trends. I bring over 5 years of experience in game production, feeling most at home in Virtual Reality (VR), which I have been working with since the very start of my career.">
+                               Z grami wideo jestem związany od najmłodszych lat — wychowany zarówno na PC, jak i na konsolach. Wciąż aktywnie gram, śledzę branżę i dobrze orientuję się w aktualnych trendach. Posiadam ponad 5-letnie doświadczenie w produkcji gier, a najlepiej czuję się w środowisku wirtualnej rzeczywistości (VR), z którym pracuję od samego początku swojej kariery.
+                            </p>
+                            <p data-pl="Poza komercyjnymi produkcjami rozwijam autorskie projekty indie, piszę o nowych technologiach oraz tworzę materiały wideo."
+                               data-en="Beyond commercial productions, I develop original indie projects, write about new technologies, and create video content.">
+                               Poza komercyjnymi produkcjami rozwijam autorskie projekty indie, piszę o nowych technologiach oraz tworzę materiały wideo.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="cards-grid-2">
+
+                    <article class="pillar-card">
+                        <div>
+                            <span class="pillar-num">02 // EXPERIENCE</span>
+                            <h2 class="pillar-title" data-pl="Doświadczenie zawodowe" data-en="Work Experience">Doświadczenie zawodowe</h2>
+                            <p class="pillar-text" 
+                               data-pl="Swoją drogę w gamedevie zaczynałem od testów i zapewniania jakości (QA), szybko obejmując stanowisko QA Leada. Następnie skoncentrowałem się na obszarze produkcyjnym i zostałem producentem. Mam na koncie pełne cykle produkcyjne oraz wydania tytułów na Meta Quest, PlayStation VR2 i Steam — od organizacji pracy zespołów i backlogu po certyfikację platformową oraz aktualizacje popremierowe." 
+                               data-en="I started my career in game development in quality assurance (QA), quickly stepping into the QA Lead role before shifting focus to production and becoming a Producer. I have overseen full production cycles and launches across Meta Quest, PlayStation VR2, and Steam — from team coordination and backlog management to platform certification and post-launch updates.">
+                               Swoją drogę w gamedevie zaczynałem od testów i zapewniania jakości (QA), szybko obejmując stanowisko QA Leada. Następnie skoncentrowałem się na obszarze produkcyjnym i zostałem producentem. Mam na koncie pełne cykle produkcyjne oraz wydania tytułów na Meta Quest, PlayStation VR2 i Steam — od organizacji pracy zespołów i backlogu po certyfikację platformową oraz aktualizacje popremierowe.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div>
+                            <span class="pillar-num">03 // B2B & STUDIO</span>
+                            <h2 class="pillar-title" data-pl="Działalność B2B" data-en="B2B Business">Działalność B2B</h2>
+                            <p class="pillar-text" 
+                               data-pl="W 2026 roku otworzyłem własną działalność gospodarczą pod szyldem Konrad Pisula Games, stawiając na większą niezależność i elastyczny model współpracy B2B. W ramach swojej firmy wspieram zewnętrzne studia w produkcji gier, audytach i organizacji procesów QA, konsultacjach VR oraz działaniach marketingowych, a także realizuję autorskie gry indie i zlecenia multimedialne." 
+                               data-en="In 2026, I established my own business under the Konrad Pisula Games banner, focusing on greater independence and a flexible B2B collaboration model. Through my company, I support external studios with game production, QA audits and pipeline setup, VR consulting, and marketing initiatives, alongside developing original indie games and multimedia projects.">
+                               W 2026 roku otworzyłem własną działalność gospodarczą pod szyldem Konrad Pisula Games, stawiając na większą niezależność i elastyczny model współpracy B2B. W ramach swojej firmy wspieram zewnętrzne studia w produkcji gier, audytach i organizacji procesów QA, konsultacjach VR oraz działaniach marketingowych, a także realizuję autorskie gry indie i zlecenia multimedialne.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="about-bento-grid">
+
+                    <article class="pillar-card about-edu-card">
+                        <div>
+                            <span class="pillar-num">04 // EDUCATION</span>
+                            <h2 class="pillar-title" data-pl="Edukacja" data-en="Education">Edukacja</h2>
+                            <div class="edu-list">
+                                <div class="edu-item">
+                                    <div class="edu-header">
+                                        <div class="edu-title" data-pl="Wyższa Szkoła Technologii Informatycznych w Katowicach" data-en="University of Information Technology in Katowice">Wyższa Szkoła Technologii Informatycznych w Katowicach</div>
+                                        <span class="edu-period" data-pl="09.2018 — 05.2022" data-en="Sep 2018 — May 2022">09.2018 — 05.2022</span>
+                                    </div>
+                                    <div class="edu-degree" data-pl="Studia wyższe licencjackie — Grafika komputerowa" data-en="Bachelor's Degree — Computer Graphics">Studia wyższe licencjackie — Grafika komputerowa</div>
+                                    <div class="edu-meta" data-pl="Specjalizacja: Projektowanie gier wideo i wirtualnej rzeczywistości." data-en="Specialization: Video Game & Virtual Reality Design.">Specjalizacja: Projektowanie gier wideo i wirtualnej rzeczywistości.</div>
+                                    <div class="edu-thesis" 
+                                         data-pl="<strong>Praca licencjacka:</strong> „Przemysł gier komputerowych a niepełnosprawni gracze. Ułatwienia i przeszkody w dostępie do gier wideo.”" 
+                                         data-en="<strong>Bachelor's thesis:</strong> &ldquo;The Video Game Industry and Gamers with Disabilities. Accessibility Features and Barriers in Video Games.&rdquo;">
+                                         <strong>Praca licencjacka:</strong> „Przemysł gier komputerowych a niepełnosprawni gracze. Ułatwienia i przeszkody w dostępie do gier wideo.”
+                                    </div>
+                                </div>
+
+                                <div class="edu-item">
+                                    <div class="edu-header">
+                                        <div class="edu-title" data-pl="Technikum Informatyczne — CKZiU w Jaworznie" data-en="IT Technical Secondary School — CKZiU in Jaworzno">Technikum Informatyczne — CKZiU w Jaworznie</div>
+                                        <span class="edu-period" data-pl="09.2014 — 05.2018" data-en="Sep 2014 — May 2018">09.2014 — 05.2018</span>
+                                    </div>
+                                    <div class="edu-degree" data-pl="Tytuł zawodowy: Technik informatyk" data-en="Vocational Title: Certified IT Technician">Tytuł zawodowy: Technik informatyk</div>
+                                    <div class="edu-meta" data-pl="Uzyskany po zdaniu wszystkich trzech państwowych egzaminów potwierdzających kwalifikacje w zawodzie:" data-en="Earned after passing all three state vocational qualification exams:">Uzyskany po zdaniu wszystkich trzech państwowych egzaminów potwierdzających kwalifikacje w zawodzie:</div>
+                                    <ul class="edu-qual-list">
+                                        <li data-pl="<strong>E.12</strong> — montaż i eksploatacja komputerów osobistych oraz urządzeń peryferyjnych" data-en="<strong>E.12</strong> — PC hardware assembly, maintenance, and peripherals"><strong>E.12</strong> — montaż i eksploatacja komputerów osobistych oraz urządzeń peryferyjnych</li>
+                                        <li data-pl="<strong>E.13</strong> — projektowanie lokalnych sieci komputerowych i administrowanie sieciami" data-en="<strong>E.13</strong> — local area network design and administration"><strong>E.13</strong> — projektowanie lokalnych sieci komputerowych i administrowanie sieciami</li>
+                                        <li data-pl="<strong>E.14</strong> — tworzenie aplikacji internetowych i baz danych oraz administrowanie bazami" data-en="<strong>E.14</strong> — web application and database development and administration"><strong>E.14</strong> — tworzenie aplikacji internetowych i baz danych oraz administrowanie bazami</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div>
+                            <span class="pillar-num">05 // SOFTWARE & TOOLS</span>
+                            <h2 class="pillar-title" data-pl="Znane oprogramowanie" data-en="Known Software">Znane oprogramowanie</h2>
+
+                            <div class="tools-group">
+                                <span class="tools-group-label" data-pl="Produkcja & QA" data-en="Production & QA">Produkcja & QA</span>
+                                <div class="tag-list">
+                                    <span class="badge">Jira</span>
+                                    <span class="badge">Confluence</span>
+                                    <span class="badge">Trello</span>
+                                    <span class="badge">Notion</span>
+                                    <span class="badge">Miro</span>
+                                    <span class="badge">TestRail</span>
+                                </div>
+                            </div>
+
+                            <div class="tools-group">
+                                <span class="tools-group-label" data-pl="Silniki & Narzędzia Dev" data-en="Engines & Dev Tools">Silniki & Narzędzia Dev</span>
+                                <div class="tag-list">
+                                    <span class="badge">Unreal Engine</span>
+                                    <span class="badge">Unity</span>
+                                    <span class="badge">Godot</span>
+                                    <span class="badge">Playdate SDK</span>
+                                </div>
+                            </div>
+
+                            <div class="tools-group">
+                                <span class="tools-group-label" data-pl="Grafika & Wideo" data-en="Graphics & Video">Grafika & Wideo</span>
+                                <div class="tag-list">
+                                    <span class="badge">DaVinci Resolve</span>
+                                    <span class="badge">Adobe Photoshop</span>
+                                    <span class="badge">Adobe Illustrator</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div>
+                            <span class="pillar-num">06 // HARDWARE & TEST LAB</span>
+                            <h2 class="pillar-title" data-pl="Sprzęt i zaplecze testowe" data-en="Work & Testing Hardware">Sprzęt i zaplecze testowe</h2>
+
+                            <div class="hardware-groups">
+                                <div>
+                                    <span class="hardware-group-label" data-pl="Komputery" data-en="Computers">Komputery</span>
+                                    <ul class="hardware-list">
+                                        <li>
+                                            <span data-pl="Laptop Windows" data-en="Windows Laptop">Laptop Windows</span>
+                                            <div class="hardware-sub">AMD Ryzen 7, 32 GB RAM, RTX 3070</div>
+                                        </li>
+                                        <li>
+                                            <span>MacBook Air M5</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <span class="hardware-group-label" data-pl="Konsole & Handheldy" data-en="Consoles & Handhelds">Konsole & Handheldy</span>
+                                    <ul class="hardware-list">
+                                        <li>
+                                            <span>Steam Deck</span>
+                                        </li>
+                                        <li>
+                                            <span>Xbox Series S</span>
+                                            <div class="hardware-sub" data-pl="Z obsługą trybu deweloperskiego" data-en="With Developer Mode enabled">Z obsługą trybu deweloperskiego</div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <span class="hardware-group-label" data-pl="Gogle VR & Kontrolery" data-en="VR Headsets & Controllers">Gogle VR & Kontrolery</span>
+                                    <ul class="hardware-list">
+                                        <li>
+                                            <span>Meta Quest 2 & Meta Quest 3</span>
+                                        </li>
+                                        <li>
+                                            <span data-pl="Kontrolery wiodących platform" data-en="Controllers for all major platforms">Kontrolery wiodących platform</span>
+                                            <div class="hardware-sub">Xbox, PlayStation, Nintendo</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <section class="socials-banner">
+                    <div class="socials-info">
+                        <h3 data-pl="Porozmawiajmy o współpracy" data-en="Let's talk about working together">Porozmawiajmy o współpracy</h3>
+                        <p data-pl="Szukasz wsparcia produkcyjnego, konsultacji VR lub chcesz zrealizować wspólny projekt? Przejdź do zakładki kontakt." 
+                           data-en="Looking for production support, VR consulting, or want to collaborate on a project? Head over to the contact tab.">
+                           Szukasz wsparcia produkcyjnego, konsultacji VR lub chcesz zrealizować wspólny projekt? Przejdź do zakładki kontakt.
+                        </p>
+                    </div>
+                    <a href="#kontakt" class="cta-btn" data-pl="PRZEJDŹ DO KONTAKTU ->" data-en="GO TO CONTACT ->">PRZEJDŹ DO KONTAKTU -></a>
                 </section>
 
             </div>
@@ -1826,9 +2313,9 @@
                             <span class="pillar-num">01 // PROD</span>
                             <h2 class="pillar-title" data-pl="Producent" data-en="Producer">Producent</h2>
                             <p class="pillar-text role-desc-full" 
-                               data-pl="Prowadzenie projektów od pre-produkcji po wydanie (Steam, PS, Meta Quest) i wsparcie popremierowe. Kamienie milowe, backlog oraz koordynacja zespołu." 
-                               data-en="Leading projects from pre-production to store release (Steam, PS, Meta Quest) and post-launch updates. Milestones, backlog, and team coordination.">
-                               Prowadzenie projektów od pre-produkcji po wydanie (Steam, PS, Meta Quest) i wsparcie popremierowe. Kamienie milowe, backlog oraz koordynacja zespołu.
+                               data-pl="Prowadzenie projektów od pre-produkcji po wydanie (Steam, PS, Meta Quest) i wsparcie popremierowe." 
+                               data-en="Leading projects from pre-production to store release (Steam, PS, Meta Quest) and post-launch updates.">
+                               Prowadzenie projektów od pre-produkcji po wydanie (Steam, PS, Meta Quest) i wsparcie popremierowe.
                             </p>
                             <p class="role-desc-short" 
                                data-pl="Zarządzanie produkcją, kamienie milowe i wydania gier." 
@@ -1841,11 +2328,11 @@
                     <article class="pillar-card">
                         <div>
                             <span class="pillar-num">02 // QA</span>
-                            <h2 class="pillar-title" data-pl="QA & Testy" data-en="QA & Test">QA & Testy</h2>
+                            <h2 class="pillar-title" data-pl="QA" data-en="QA">QA</h2>
                             <p class="pillar-text role-desc-full" 
-                               data-pl="Testy funkcjonalne, weryfikacja wydajności i komfortu w tytułach VR, testy językowe (LQA) oraz przygotowanie gier pod certyfikację platformową." 
-                               data-en="Functional testing, performance and comfort verification in VR titles, linguistic QA (LQA), and platform certification readiness.">
-                               Testy funkcjonalne, weryfikacja wydajności i komfortu w tytułach VR, testy językowe (LQA) oraz przygotowanie gier pod certyfikację platformową.
+                               data-pl="Testy funkcjonalne, weryfikacja wydajności i komfortu w VR, LQA oraz przygotowanie gier pod certyfikację platformową." 
+                               data-en="Functional testing, performance and comfort verification in VR, linguistic QA (LQA), and platform certification readiness.">
+                               Testy funkcjonalne, weryfikacja wydajności i komfortu w VR, LQA oraz przygotowanie gier pod certyfikację platformową.
                             </p>
                             <p class="role-desc-short" 
                                data-pl="Testy funkcjonalne, LQA, wydajność VR i certyfikacja." 
@@ -1860,14 +2347,14 @@
                             <span class="pillar-num">03 // OTHER</span>
                             <h2 class="pillar-title" data-pl="Inne" data-en="Other">Inne</h2>
                             <p class="pillar-text role-desc-full" 
-                               data-pl="Projektowanie mechanik, aplikacje ArchViz VR oraz przygotowywanie materiałów wideo, trailerów i grafik sklepowych." 
-                               data-en="Mechanics design, ArchViz VR apps, as well as video trailers and store page assets.">
-                               Projektowanie mechanik, aplikacje ArchViz VR oraz przygotowywanie materiałów wideo, trailerów i grafik sklepowych.
+                               data-pl="Działania marketingowe, takie jak zwiastuny, devlogi i rolki, a także designowanie mechanik." 
+                               data-en="Marketing materials such as trailers, devlogs, and reels, as well as gameplay mechanics design.">
+                               Działania marketingowe, takie jak zwiastuny, devlogi i rolki, a także designowanie mechanik.
                             </p>
                             <p class="role-desc-short" 
-                               data-pl="Design, ArchViz VR, trailery i grafika." 
-                               data-en="Design, ArchViz VR, trailers & art.">
-                               Design, ArchViz VR, trailery i grafika.
+                               data-pl="Zwiastuny, devlogi, rolki i design mechanik." 
+                               data-en="Trailers, devlogs, reels & mechanics design.">
+                               Zwiastuny, devlogi, rolki i design mechanik.
                             </p>
                         </div>
                     </article>
@@ -2149,9 +2636,9 @@
                     </span>
                     <h1 class="page-title" data-pl="Inne Działalności" data-en="Other Activities">Inne Działalności</h1>
                     <p class="page-lead" 
-                       data-pl="Gamedev to nie wszystko. Od lat zajmuję się również dziennikarstwem technologicznym, testowaniem sprzętu, fotografią, a także tworzeniem materiałów wideo. Tu również jestem otwarty na współpracę." 
-                       data-en="Gamedev is just one part of the story. For years I have also been involved in technology journalism, hardware testing, photography, as well as video production. I am open to collaboration in these areas too.">
-                       Gamedev to nie wszystko. Od lat zajmuję się również dziennikarstwem technologicznym, testowaniem sprzętu, fotografią, a także tworzeniem materiałów wideo. Tu również jestem otwarty na współpracę.
+                       data-pl="Gamedev to nie wszystko. Od lat zajmuję się również dziennikarstwem technologicznym, testowaniem sprzętu, a także tworzeniem materiałów wideo. Tu również jestem otwarty na współpracę." 
+                       data-en="Gamedev is just one part of the story. For years I have also been involved in technology journalism, hardware testing, as well as video production. I am open to collaboration in these areas too.">
+                       Gamedev to nie wszystko. Od lat zajmuję się również dziennikarstwem technologicznym, testowaniem sprzętu, a także tworzeniem materiałów wideo. Tu również jestem otwarty na współpracę.
                     </p>
                 </div>
 
@@ -2162,15 +2649,15 @@
                             <span class="pillar-num">01 // TECH MEDIA</span>
                             <h2 class="pillar-title">Tabletowo.pl</h2>
                             <p class="pillar-text" 
-                               data-pl="Pisałem tam kiedyś o grach, teraz głównie o technologii. Artykuły, publicystyka oraz recenzje elektroniki użytkowej i gadżetów." 
-                               data-en="I used to write about games there, now mostly about technology. Articles, opinion pieces, and reviews of consumer electronics and gadgets.">
-                               Pisałem tam kiedyś o grach, teraz głównie o technologii. Artykuły, publicystyka oraz recenzje elektroniki użytkowej i gadżetów.
+                               data-pl="Piszę tu głównie o nowej technologii. Artykuły, publicystyka oraz recenzje elektroniki użytkowej i gadżetów." 
+                               data-en="I write here mostly about new technology. Articles, opinion pieces, and reviews of consumer electronics and gadgets.">
+                               Piszę tu głównie o nowej technologii. Artykuły, publicystyka oraz recenzje elektroniki użytkowej i gadżetów.
                             </p>
                         </div>
                         <span class="pillar-link" data-pl="ZOBACZ PUBLIKACJE ->" data-en="READ ARTICLES ->">ZOBACZ PUBLIKACJE -></span>
                     </a>
 
-                    <a href="#modal-fotografia" class="pillar-card">
+                    <a href="#modal-fotografia" class="pillar-card is-hidden" hidden>
                         <div>
                             <span class="pillar-num">02 // PHOTOGRAPHY</span>
                             <h2 class="pillar-title" data-pl="Fotografia" data-en="Photography">Fotografia</h2>
@@ -2185,7 +2672,7 @@
 
                     <a href="https://youtube.com/playlist?list=PLVtAn_mVn2_8&si=VG1a1O4d0A1-xmkG" target="_blank" rel="noopener noreferrer" class="pillar-card">
                         <div>
-                            <span class="pillar-num">03 // VIDEO PRODUCTION</span>
+                            <span class="pillar-num">02 // VIDEO PRODUCTION</span>
                             <h2 class="pillar-title" data-pl="Treści Wideo" data-en="Video Content">Treści Wideo</h2>
                             <p class="pillar-text" 
                                data-pl="Od lat moją pasją jest tworzenie materiałów wideo. Mam sprzęt i doświadczenie zarówno z realizacji, jak i montażu przeróżnych treści, od prostych rolek po większe materiały." 
@@ -2196,7 +2683,7 @@
                         <span class="pillar-link" data-pl="PLAYLISTA PORTFOLIO ->" data-en="PORTFOLIO PLAYLIST ->">PLAYLISTA PORTFOLIO -></span>
                     </a>
 
-                    <a href="#modal-grafika" class="pillar-card">
+                    <a href="#modal-grafika" class="pillar-card is-hidden" hidden>
                         <div>
                             <span class="pillar-num">04 // GRAPHIC DESIGN</span>
                             <h2 class="pillar-title" data-pl="Usługi graficzne" data-en="Graphic Design Services">Usługi graficzne</h2>
@@ -2235,7 +2722,7 @@
                             <a href="mailto:pisulagames@gmail.com" id="email-text" class="contact-mail">pisulagames@gmail.com</a>
                             <button type="button" id="copy-email-btn" class="copy-email-btn" title="Skopiuj e-mail" aria-label="Skopiuj adres e-mail">
                                 <svg id="copy-icon-default" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                                <svg id="copy-icon-done" style="display:none;" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                <svg id="copy-icon-done" class="is-hidden" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                             </button>
                         </div>
 
@@ -2245,10 +2732,7 @@
                            Rozliczenia w modelu B2B (faktura VAT / Europejski NIP).
                         </p>
 
-                        <div class="social-buttons" style="margin-top: 20px;">
-                            <a href="https://www.youtube.com/@PisulaGames" target="_blank" rel="noopener noreferrer" class="social-btn">
-                                <span>YouTube</span>
-                            </a>
+                        <div class="social-buttons contact-socials">
                             <a href="https://www.instagram.com/pisulagames" target="_blank" rel="noopener noreferrer" class="social-btn">
                                 <span>Instagram</span>
                             </a>
@@ -2487,7 +2971,7 @@
                 <div class="project-specs">
                     <div class="spec-item">
                         <span data-pl="STANOWISKO" data-en="ROLE">STANOWISKO</span>
-                        <strong>QA Lead</strong>
+                        <strong>QA</strong>
                     </div>
                     <div class="spec-item">
                         <span data-pl="PLATFORMY" data-en="PLATFORMS">PLATFORMY</span>
@@ -2501,19 +2985,18 @@
 
                 <div class="project-body">
                     <h3 data-pl="Zakres współpracy" data-en="Scope of work">Zakres współpracy</h3>
-                    <p data-pl="Nadzór nad jakością oraz procesem wydawniczym wersji platformowych gry Blair Witch VR w studiu Incuvo."
-                       data-en="Overseeing quality assurance and platform release readiness for Blair Witch VR across PCVR and PlayStation VR at Incuvo.">
-                       Nadzór nad jakością oraz procesem wydawniczym wersji platformowych gry Blair Witch VR w studiu Incuvo.
+                    <p data-pl="Testy funkcjonalne oraz wsparcie procesu wydawniczego wersji platformowych gry Blair Witch VR w studiu Incuvo."
+                       data-en="Functional testing and release support for Blair Witch VR across PCVR and PlayStation VR at Incuvo.">
+                       Testy funkcjonalne oraz wsparcie procesu wydawniczego wersji platformowych gry Blair Witch VR w studiu Incuvo.
                     </p>
                     <h3 data-pl="Główne obowiązki" data-en="Key responsibilities">Główne obowiązki</h3>
-                    <p data-pl="Weryfikacja interakcji VR (latarka, kamera, interakcje z psem Bulletem), optymalizacja pod kątem płynności wyświetlania obrazu oraz przeprowadzenie gry przez proces certyfikacji Sony PlayStation VR i SteamVR."
-                       data-en="Verifying tactile VR interactions (flashlight, camcorder, companion mechanics), framerate stability checks, and guiding the title through Sony PlayStation VR and SteamVR certification.">
-                       Weryfikacja interakcji VR (latarka, kamera, interakcje z psem Bulletem), optymalizacja pod kątem płynności wyświetlania obrazu oraz przeprowadzenie gry przez proces certyfikacji Sony PlayStation VR i SteamVR.
+                    <p data-pl="Weryfikacja interakcji VR (latarka, kamera, interakcje z psem Bulletem), kontrola płynności wyświetlania obrazu oraz testy pod kątem certyfikacji Sony PlayStation VR i SteamVR."
+                       data-en="Verifying tactile VR interactions (flashlight, camcorder, companion mechanics), framerate stability checks, and compliance testing for Sony PlayStation VR and SteamVR certification.">
+                       Weryfikacja interakcji VR (latarka, kamera, interakcje z psem Bulletem), kontrola płynności wyświetlania obrazu oraz testy pod kątem certyfikacji Sony PlayStation VR i SteamVR.
                     </p>
                 </div>
             </div>
 
-            <!-- Modal Fotografia z karuzelą na 18 zdjęć (photo-portfolio/photo-01.jpg ... photo-18.jpg) -->
             <div id="modal-fotografia" class="modal-content-item" data-parent-tab="inne-dzialalnosci" data-studio-class="" data-tag-pl="<span>FOTOGRAFIA // PORTFOLIO</span>" data-tag-en="<span>PHOTOGRAPHY // PORTFOLIO</span>">
                 <h1 class="page-title" data-pl="Fotografia" data-en="Photography">Fotografia</h1>
 
@@ -2538,12 +3021,11 @@
                 <div id="photo-carousel" class="carousel-widget"></div>
 
                 <div class="modal-cta-row">
-                    <span style="font-size: 0.82rem; color: var(--text-muted);" data-pl="Chcesz zapytać o termin lub wycenę?" data-en="Want to ask about availability or pricing?">Chcesz zapytać o termin lub wycenę?</span>
+                    <span class="modal-cta-text" data-pl="Chcesz zapytać o termin lub wycenę?" data-en="Want to ask about availability or pricing?">Chcesz zapytać o termin lub wycenę?</span>
                     <a href="#kontakt" class="pillar-link" data-pl="PRZEJDŹ DO KONTAKTU ->" data-en="GO TO CONTACT ->">PRZEJDŹ DO KONTAKTU -></a>
                 </div>
             </div>
 
-            <!-- Modal Usługi graficzne z karuzelą na 8 grafik (graphic-portfolio/graphic-01.jpg ... graphic-08.jpg) -->
             <div id="modal-grafika" class="modal-content-item" data-parent-tab="inne-dzialalnosci" data-studio-class="" data-tag-pl="<span>GRAPHIC DESIGN // PORTFOLIO</span>" data-tag-en="<span>GRAPHIC DESIGN // PORTFOLIO</span>">
                 <h1 class="page-title" data-pl="Usługi graficzne" data-en="Graphic Design Services">Usługi graficzne</h1>
 
@@ -2572,7 +3054,7 @@
                 <div id="graphic-carousel" class="carousel-widget"></div>
 
                 <div class="modal-cta-row">
-                    <span style="font-size: 0.82rem; color: var(--text-muted);" data-pl="Potrzebujesz logo, oprawy lub prostej strony?" data-en="Need a logo, branding, or a clean website?">Potrzebujesz logo, oprawy lub prostej strony?</span>
+                    <span class="modal-cta-text" data-pl="Potrzebujesz logo, oprawy lub prostej strony?" data-en="Need a logo, branding, or a clean website?">Potrzebujesz logo, oprawy lub prostej strony?</span>
                     <a href="#kontakt" class="pillar-link" data-pl="PRZEJDŹ DO KONTAKTU ->" data-en="GO TO CONTACT ->">PRZEJDŹ DO KONTAKTU -></a>
                 </div>
             </div>
@@ -2625,20 +3107,19 @@
                 const email = emailTextEl.textContent.trim();
                 try {
                     await navigator.clipboard.writeText(email);
-                    copyIconDefault.style.display = 'none';
-                    copyIconDone.style.display = 'block';
+                    copyIconDefault.classList.add('is-hidden');
+                    copyIconDone.classList.remove('is-hidden');
                     copyEmailBtn.classList.add('copied');
 
                     setTimeout(() => {
-                        copyIconDefault.style.display = 'block';
-                        copyIconDone.style.display = 'none';
+                        copyIconDefault.classList.remove('is-hidden');
+                        copyIconDone.classList.add('is-hidden');
                         copyEmailBtn.classList.remove('copied');
                     }, 1800);
                 } catch (err) {}
             });
         }
 
-        // Generator interaktywnych karuzel dla Fotografii (18 zdjęć) oraz Usług graficznych (8 grafik)
         function initCarousel(containerId, folder, prefix, count) {
             const container = document.getElementById(containerId);
             if (!container) return;
