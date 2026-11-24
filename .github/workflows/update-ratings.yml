@@ -20,7 +20,7 @@ jobs:
           pip install playwright
           playwright install chromium
 
-      - name: Pobierz oceny ze sklepu Meta Quest
+      - name: Pobierz oceny Meta Quest i licznik Tabletowo
         run: |
           python3 - << 'EOF'
           import json
@@ -36,10 +36,12 @@ jobs:
               "ghvr": "https://www.meta.com/pl-pl/experiences/green-hell-vr/3815577785147028/"
           }
 
+          TABLETOWO_SLUG = "kpisula"
+          TABLETOWO_AUTHOR_URL = f"https://www.tabletowo.pl/author/{TABLETOWO_SLUG}/"
+
           with open("assets/ratings.json", "r", encoding="utf-8") as f:
               data = json.load(f)
 
-          # Usunięcie ewentualnego starego wpisu blairwitch z pliku JSON
           data.pop("blairwitch", None)
 
           def extract_app_id(url):
@@ -67,6 +69,83 @@ jobs:
                   int(count_m.group(1)) if count_m else None
               )
 
+          def count_page_articles(page):
+              cnt = page.locator("main article").count()
+              if cnt == 0:
+                  cnt = page.locator("article").count()
+              return cnt
+
+          def fetch_tabletowo_count(context, page):
+              author_id = None
+
+              # Metoda 1: WordPress REST API (pobranie ID autora + nagłówek X-WP-Total)
+              try:
+                  u_resp = context.request.get(
+                      f"https://www.tabletowo.pl/wp-json/wp/v2/users?slug={TABLETOWO_SLUG}",
+                      timeout=20000
+                  )
+                  if u_resp.ok:
+                      users = u_resp.json()
+                      if isinstance(users, list) and len(users) > 0 and "id" in users[0]:
+                          author_id = users[0]["id"]
+                          print(f"[Tabletowo] Znaleziono ID autora przez API: {author_id}")
+              except Exception as e:
+                  print(f"[Tabletowo] Info API users: {e}")
+
+              page_html = ""
+              if not author_id:
+                  try:
+                      page.goto(TABLETOWO_AUTHOR_URL, wait_until="domcontentloaded", timeout=35000)
+                      page.wait_for_timeout(2500)
+                      page_html = page.content()
+                      id_m = re.search(r'<body[^>]*class="[^"]*\bauthor-(\d+)\b', page_html)
+                      if id_m:
+                          author_id = int(id_m.group(1))
+                          print(f"[Tabletowo] Wyciągnięto ID autora z HTML: {author_id}")
+                  except Exception as e:
+                      print(f"[Tabletowo] Błąd ładowania profilu: {e}")
+
+              if author_id:
+                  try:
+                      p_resp = context.request.get(
+                          f"https://www.tabletowo.pl/wp-json/wp/v2/posts?author={author_id}&per_page=1",
+                          timeout=20000
+                      )
+                      if p_resp.ok:
+                          total = p_resp.headers.get("x-wp-total")
+                          if total and str(total).isdigit():
+                              print(f"[SUKCES Tabletowo API] Liczba publikacji: {total}")
+                              return int(total)
+                  except Exception as e:
+                      print(f"[Tabletowo] Info API posts: {e}")
+
+              # Metoda 2: Zapasowe zliczanie na podstawie paginacji profilu autora
+              try:
+                  if not page_html:
+                      page.goto(TABLETOWO_AUTHOR_URL, wait_until="domcontentloaded", timeout=35000)
+                      page.wait_for_timeout(2500)
+                      page_html = page.content()
+
+                  per_page = count_page_articles(page)
+                  page_nums = [int(n) for n in re.findall(rf'/author/{TABLETOWO_SLUG}/page/(\d+)/?', page_html)]
+
+                  if per_page > 0 and page_nums:
+                      max_page = max(page_nums)
+                      page.goto(f"{TABLETOWO_AUTHOR_URL}page/{max_page}/", wait_until="domcontentloaded", timeout=35000)
+                      page.wait_for_timeout(2500)
+                      last_page_count = count_page_articles(page)
+                      if last_page_count > 0:
+                          total = (max_page - 1) * per_page + last_page_count
+                          print(f"[SUKCES Tabletowo Paginacja] {max_page} stron -> {total} publikacji")
+                          return total
+                  elif per_page > 0:
+                      print(f"[SUKCES Tabletowo 1 strona] {per_page} publikacji")
+                      return per_page
+              except Exception as e:
+                  print(f"[BŁĄD Tabletowo Paginacja] {e}")
+
+              return None
+
           with sync_playwright() as p:
               browser = p.chromium.launch(headless=True)
               context = browser.new_context(
@@ -82,7 +161,6 @@ jobs:
                   app_id = extract_app_id(url)
                   print(f"\n--- Sprawdzam {key} (ID: {app_id}) ---")
 
-                  # Metoda 1: Bezpośrednie API GraphQL sklepu Oculus/Meta
                   if app_id:
                       try:
                           score, count = fetch_via_graphql(app_id)
@@ -94,7 +172,6 @@ jobs:
                       except Exception as e:
                           print(f"[Info GraphQL] Nie udało się ({e}), próbuję przez przeglądarkę...")
 
-                  # Metoda 2: Przeglądarka Chromium z kliknięciem zgody na cookies (EN i PL)
                   try:
                       page.goto(url, wait_until="domcontentloaded", timeout=35000)
                       page.wait_for_timeout(4000)
@@ -142,15 +219,22 @@ jobs:
                   except Exception as e:
                       print(f"[BŁĄD Playwright] {key}: {e}")
 
+              print("\n--- Sprawdzam licznik publikacji Tabletowo.pl ---")
+              tabletowo_count = fetch_tabletowo_count(context, page)
+              if tabletowo_count and tabletowo_count > 0:
+                  data["tabletowo"] = {"count": tabletowo_count}
+              else:
+                  print("[UWAGA] Nie udało się pobrać liczby publikacji z Tabletowo.pl")
+
               browser.close()
 
           with open("assets/ratings.json", "w", encoding="utf-8") as f:
               json.dump(data, f, indent=2)
           EOF
 
-      - name: Zapisz zaktualizowane oceny w repozytorium
+      - name: Zapisz zaktualizowane dane w repozytorium
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/ratings.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Meta Quest ratings" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update ratings and Tabletowo stats" && git push)
