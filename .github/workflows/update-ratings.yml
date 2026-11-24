@@ -78,7 +78,6 @@ jobs:
           def fetch_tabletowo_count(context, page):
               author_id = None
 
-              # Metoda 1: WordPress REST API (pobranie ID autora + nagłówek X-WP-Total)
               try:
                   u_resp = context.request.get(
                       f"https://www.tabletowo.pl/wp-json/wp/v2/users?slug={TABLETOWO_SLUG}",
@@ -119,7 +118,6 @@ jobs:
                   except Exception as e:
                       print(f"[Tabletowo] Info API posts: {e}")
 
-              # Metoda 2: Zapasowe zliczanie na podstawie paginacji profilu autora
               try:
                   if not page_html:
                       page.goto(TABLETOWO_AUTHOR_URL, wait_until="domcontentloaded", timeout=35000)
@@ -237,4 +235,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/ratings.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update ratings and Tabletowo stats" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update ratings and Tabletowo stats" && git pull --rebase && git push)
