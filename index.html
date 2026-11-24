@@ -735,6 +735,34 @@
             margin-bottom: 10px;
         }
 
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border);
+        }
+
+        .card-release-date {
+            font-family: var(--font-body);
+            font-size: 0.74rem;
+            color: var(--text-muted);
+        }
+
+        .card-release-date strong {
+            color: var(--text);
+        }
+
+        .card-more {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
         .pillar-num {
             font-family: var(--font-body);
             font-size: 0.75rem;
@@ -756,6 +784,18 @@
             border: 1px solid var(--border);
             background-color: var(--surface);
             color: var(--text-muted);
+        }
+
+        .stat-badge {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+            background-color: color-mix(in srgb, var(--accent) 10%, var(--bg));
+            color: var(--text);
+            white-space: nowrap;
         }
 
         .rating-badge {
@@ -1150,7 +1190,7 @@
 
         .project-specs {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 16px;
             padding: 16px 20px;
             border: 1px solid var(--border);
@@ -2007,9 +2047,9 @@
                         Tworzę autorskie gry indie i wspieram produkcje zewnętrznych studiów.<br>I nie tylko.
                     </h1>
                     <p class="hero-desc" 
-                       data-pl="Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu grafiki i wideo." 
-                       data-en="Independent game development studio and B2B services. Experienced in shipping titles across PC (Steam), PlayStation, and Meta Quest — with a strong focus on Virtual Reality (VR). I also take on projects in graphic design and video production.">
-                       Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu grafiki i wideo.
+                       data-pl="Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu wideo." 
+                       data-en="Independent game development studio and B2B services. Experienced in shipping titles across PC (Steam), PlayStation, and Meta Quest — with a strong focus on Virtual Reality (VR). I also take on video production projects.">
+                       Niezależne studio gamedev oraz usługi B2B. Posiadam doświadczenie w wydawaniu gier na PC (Steam), PlayStation oraz Meta Quest — ze szczególnym naciskiem na wirtualną rzeczywistość (VR). Realizuję także projekty z zakresu wideo.
                     </p>
                 </section>
 
@@ -2023,9 +2063,9 @@
                             <span class="pillar-num">01 // CO-DEV & B2B</span>
                             <h2 class="pillar-title" data-pl="Zewnętrzne Projekty" data-en="External Projects">Zewnętrzne Projekty</h2>
                             <p class="pillar-text" 
-                               data-pl="Wsparcie produkcyjne (Game Production), zapewnianie jakości (QA) oraz rozwój tytułów VR." 
-                               data-en="Game production support, quality assurance (QA), and VR title development.">
-                               Wsparcie produkcyjne (Game Production), zapewnianie jakości (QA) oraz rozwój tytułów VR.
+                               data-pl="Wsparcie produkcyjne, zapewnianie jakości (QA) oraz rozwój tytułów VR." 
+                               data-en="Production support, quality assurance (QA), and VR title development.">
+                               Wsparcie produkcyjne, zapewnianie jakości (QA) oraz rozwój tytułów VR.
                             </p>
                         </div>
                         <a href="#zewnetrzne-projekty" class="pillar-link" data-pl="PORTFOLIO ->" data-en="PORTFOLIO ->">PORTFOLIO -></a>
@@ -2141,9 +2181,9 @@
                             <span class="pillar-num">03 // B2B & STUDIO</span>
                             <h2 class="pillar-title" data-pl="Działalność B2B" data-en="B2B Business">Działalność B2B</h2>
                             <p class="pillar-text" 
-                               data-pl="W 2026 roku otworzyłem własną działalność gospodarczą pod szyldem Konrad Pisula Games, stawiając na większą niezależność i elastyczny model współpracy B2B. W ramach swojej firmy wspieram zewnętrzne studia w produkcji gier, audytach i organizacji procesów QA, konsultacjach VR oraz działaniach marketingowych, a także realizuję autorskie gry indie i zlecenia multimedialne." 
-                               data-en="In 2026, I established my own business under the Konrad Pisula Games banner, focusing on greater independence and a flexible B2B collaboration model. Through my company, I support external studios with game production, QA audits and pipeline setup, VR consulting, and marketing initiatives, alongside developing original indie games and multimedia projects.">
-                               W 2026 roku otworzyłem własną działalność gospodarczą pod szyldem Konrad Pisula Games, stawiając na większą niezależność i elastyczny model współpracy B2B. W ramach swojej firmy wspieram zewnętrzne studia w produkcji gier, audytach i organizacji procesów QA, konsultacjach VR oraz działaniach marketingowych, a także realizuję autorskie gry indie i zlecenia multimedialne.
+                               data-pl="Pod koniec 2026 roku otworzyłem własną działalność gospodarczą pod szyldem Konrad Pisula Games, stawiając na większą niezależność i elastyczny model współpracy B2B. W ramach swojej firmy wspieram zewnętrzne studia w produkcji gier i organizacji procesów QA, konsultacjach VR oraz działaniach marketingowych, a także realizuję autorskie gry indie i zlecenia wideo." 
+                               data-en="In late 2026, I established my own business under the Konrad Pisula Games banner, focusing on greater independence and a flexible B2B collaboration model. Through my company, I support external studios with game production and QA pipeline setup, VR consulting, and marketing initiatives, alongside developing original indie games and video projects.">
+                               Pod koniec 2026 roku otworzyłem własną działalność gospodarczą pod szyldem Konrad Pisula Games, stawiając na większą niezależność i elastyczny model współpracy B2B. W ramach swojej firmy wspieram zewnętrzne studia w produkcji gier i organizacji procesów QA, konsultacjach VR oraz działaniach marketingowych, a także realizuję autorskie gry indie i zlecenia wideo.
                             </p>
                         </div>
                     </article>
@@ -2199,17 +2239,15 @@
                                     <span class="badge">Jira</span>
                                     <span class="badge">Confluence</span>
                                     <span class="badge">Trello</span>
-                                    <span class="badge">Notion</span>
                                     <span class="badge">Miro</span>
-                                    <span class="badge">TestRail</span>
                                 </div>
                             </div>
 
                             <div class="tools-group">
                                 <span class="tools-group-label" data-pl="Silniki & Narzędzia Dev" data-en="Engines & Dev Tools">Silniki & Narzędzia Dev</span>
                                 <div class="tag-list">
-                                    <span class="badge">Unreal Engine</span>
                                     <span class="badge">Unity</span>
+                                    <span class="badge">Unreal Engine</span>
                                     <span class="badge">Godot</span>
                                     <span class="badge">Playdate SDK</span>
                                 </div>
@@ -2597,9 +2635,9 @@
                     </span>
                     <h1 class="page-title" data-pl="Moje Gry" data-en="My Games">Moje Gry</h1>
                     <p class="page-lead" 
-                       data-pl="Autorskie produkcje niezależne oraz prototypy rozwijane wewnętrznie. Kliknij w wybrany projekt, aby poznać szczegóły." 
-                       data-en="Original indie productions and prototypes developed in-house. Click on a project card to explore the details.">
-                       Autorskie produkcje niezależne oraz prototypy rozwijane wewnętrznie. Kliknij w wybrany projekt, aby poznać szczegóły.
+                       data-pl="Autorskie produkcje niezależne. Kliknij w wybrany projekt, aby poznać szczegóły." 
+                       data-en="Original indie productions. Click on a project card to explore the details.">
+                       Autorskie produkcje niezależne. Kliknij w wybrany projekt, aby poznać szczegóły.
                     </p>
                 </div>
 
@@ -2621,6 +2659,33 @@
                                data-en="A fast-paced press censorship simulator for the Playdate console. Use the physical crank to scroll through documents and redact classified lines before the deadline.">
                                Dynamiczny symulator cenzury prasowej na konsolę Playdate. Używaj fizycznej korbki do przewijania dokumentów i zamazywania tajnych informacji przed upływem czasu.
                             </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-release-date" data-pl="PREMIERA: <strong>TBA</strong>" data-en="RELEASE: <strong>TBA</strong>">PREMIERA: <strong>TBA</strong></span>
+                            <span class="card-more" data-pl="SZCZEGÓŁY ->" data-en="DETAILS ->">SZCZEGÓŁY -></span>
+                        </div>
+                    </a>
+
+                    <a href="#gra-clockwork" class="item-card">
+                        <div>
+                            <div class="card-thumb">
+                                <img src="assets/clockwork.jpg" loading="lazy" alt="Clock Work" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
+                                <span class="img-placeholder-label">[ assets/clockwork.jpg // 16:9 ]</span>
+                            </div>
+                            <div class="card-meta">
+                                <span class="pillar-num">BROWSER // UNITY</span>
+                                <span class="badge" data-pl="WYDANE" data-en="RELEASED">WYDANE</span>
+                            </div>
+                            <h2 class="pillar-title">Clock Work</h2>
+                            <p class="pillar-text" 
+                               data-pl="Projekt stworzony w ramach Xanderjam 5 wraz z grupą znajomych." 
+                               data-en="A game jam project created during Xanderjam 5 together with a group of friends.">
+                               Projekt stworzony w ramach Xanderjam 5 wraz z grupą znajomych.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-release-date" data-pl="PREMIERA: <strong>[DATA]</strong>" data-en="RELEASE: <strong>[DATE]</strong>">PREMIERA: <strong>[DATA]</strong></span>
+                            <span class="card-more" data-pl="SZCZEGÓŁY ->" data-en="DETAILS ->">SZCZEGÓŁY -></span>
                         </div>
                     </a>
 
@@ -2646,7 +2711,10 @@
 
                     <a href="https://www.tabletowo.pl/author/kpisula/" target="_blank" rel="noopener noreferrer" class="pillar-card">
                         <div>
-                            <span class="pillar-num">01 // TECH MEDIA</span>
+                            <div class="card-meta">
+                                <span class="pillar-num">01 // TECH MEDIA</span>
+                                <span id="tabletowo-count-badge" class="stat-badge is-hidden"></span>
+                            </div>
                             <h2 class="pillar-title">Tabletowo.pl</h2>
                             <p class="pillar-text" 
                                data-pl="Piszę tu głównie o nowej technologii. Artykuły, publicystyka oraz recenzje elektroniki użytkowej i gadżetów." 
@@ -2795,6 +2863,10 @@
                         <span data-pl="STATUS" data-en="STATUS">STATUS</span>
                         <strong data-pl="W produkcji" data-en="In development">W produkcji</strong>
                     </div>
+                    <div class="spec-item">
+                        <span data-pl="DATA WYDANIA" data-en="RELEASE DATE">DATA WYDANIA</span>
+                        <strong data-pl="TBA" data-en="TBA">TBA</strong>
+                    </div>
                 </div>
 
                 <div class="project-body">
@@ -2809,6 +2881,47 @@
                        data-en="The physical crank controls the mechanical paper feed across your desk, while buttons let you black out restricted phrases with a heavy marker. With each shift, censorship directives grow more complex as the clock ticks down.">
                        Fizyczna korbka konsoli odpowiada za mechaniczne przesuwanie papierowej taśmy na biurku, a przyciski pozwalają na precyzyjne zamazywanie zakazanych słów czarnym markerem. Z każdą kolejną zmianą wytyczne stają się coraz bardziej złożone, a presja czasu rośnie.
                     </p>
+                </div>
+            </div>
+
+            <div id="gra-clockwork" class="modal-content-item" data-parent-tab="moje-gry" data-studio-class="" data-tag-pl="<span>BROWSER // UNITY // XANDERJAM 5</span>" data-tag-en="<span>BROWSER // UNITY // XANDERJAM 5</span>">
+                <h1 class="page-title">Clock Work</h1>
+
+                <div class="project-hero-media">
+                    <img src="assets/clockwork.jpg" loading="lazy" alt="Clock Work" onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');">
+                    <span class="img-placeholder-label">[ assets/clockwork.jpg // 16:9 ]</span>
+                </div>
+
+                <div class="project-specs">
+                    <div class="spec-item">
+                        <span data-pl="PLATFORMA" data-en="PLATFORM">PLATFORMA</span>
+                        <strong data-pl="Przeglądarka (itch.io)" data-en="Browser (itch.io)">Przeglądarka (itch.io)</strong>
+                    </div>
+                    <div class="spec-item">
+                        <span data-pl="TECHNOLOGIA" data-en="TECH STACK">TECHNOLOGIA</span>
+                        <strong>Unity</strong>
+                    </div>
+                    <div class="spec-item">
+                        <span data-pl="STATUS" data-en="STATUS">STATUS</span>
+                        <strong data-pl="Wydane" data-en="Released">Wydane</strong>
+                    </div>
+                    <div class="spec-item">
+                        <span data-pl="DATA WYDANIA" data-en="RELEASE DATE">DATA WYDANIA</span>
+                        <strong data-pl="[DATA]" data-en="[DATE]">[DATA]</strong>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <h3 data-pl="O projekcie" data-en="About the game">O projekcie</h3>
+                    <p data-pl="Clock Work to gra przeglądarkowa stworzona wraz z grupą znajomych w ramach game jamu Xanderjam 5. Projekt powstał na silniku Unity w krótkim, jamowym cyklu produkcyjnym jako zwarta, grywalna produkcja dostępna bezpośrednio w przeglądarce."
+                       data-en="Clock Work is a browser game created together with a group of friends during the Xanderjam 5 game jam. Built in Unity under a tight jam schedule, it is a compact, playable experience available directly in the browser.">
+                       Clock Work to gra przeglądarkowa stworzona wraz z grupą znajomych w ramach game jamu Xanderjam 5. Projekt powstał na silniku Unity w krótkim, jamowym cyklu produkcyjnym jako zwarta, grywalna produkcja dostępna bezpośrednio w przeglądarce.
+                    </p>
+                </div>
+
+                <div class="modal-cta-row">
+                    <span class="modal-cta-text" data-pl="Chcesz sprawdzić grę? Zagraj bezpośrednio w przeglądarce." data-en="Want to try it out? Play directly in your browser.">Chcesz sprawdzić grę? Zagraj bezpośrednio w przeglądarce.</span>
+                    <a href="https://games-made-after-job.itch.io/clockwork" target="_blank" rel="noopener noreferrer" class="cta-btn" data-pl="ZAGRAJ NA ITCH.IO ->" data-en="PLAY ON ITCH.IO ->">ZAGRAJ NA ITCH.IO -></a>
                 </div>
             </div>
 
@@ -3224,6 +3337,15 @@
             return count.toString();
         }
 
+        function formatPolishPosts(n) {
+            const mod10 = n % 10;
+            const mod100 = n % 100;
+            const formatted = n.toLocaleString('pl-PL');
+            if (n === 1) return `${formatted} PUBLIKACJA`;
+            if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return `${formatted} PUBLIKACJE`;
+            return `${formatted} PUBLIKACJI`;
+        }
+
         async function loadMetaRatings() {
             try {
                 const response = await fetch(`assets/ratings.json?v=${Math.floor(Date.now() / 3600000)}`);
@@ -3251,6 +3373,20 @@
                         el.textContent = `★ ${Number(data.score).toFixed(1)}${countText}`;
                     }
                 });
+
+                const tabletowoBadge = document.getElementById('tabletowo-count-badge');
+                if (tabletowoBadge && ratings.tabletowo && ratings.tabletowo.count) {
+                    const count = Number(ratings.tabletowo.count);
+                    if (count > 0) {
+                        const plText = formatPolishPosts(count);
+                        const enText = count === 1 ? `${count} ARTICLE` : `${count.toLocaleString('en-US')} ARTICLES`;
+                        tabletowoBadge.setAttribute('data-pl', plText);
+                        tabletowoBadge.setAttribute('data-en', enText);
+                        const currentLang = document.documentElement.lang || 'pl';
+                        tabletowoBadge.textContent = currentLang === 'pl' ? plText : enText;
+                        tabletowoBadge.classList.remove('is-hidden');
+                    }
+                }
             } catch (err) {}
         }
 
