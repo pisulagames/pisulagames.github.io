@@ -5,7 +5,7 @@
   },
   "mdns": {
     "score": 4.7,
-    "count": 9180
+    "count": 9181
   },
   "bulletstorm": {
     "score": 4.1,
@@ -14,5 +14,8 @@
   "ghvr": {
     "score": 4.2,
     "count": 6206
+  },
+  "tabletowo": {
+    "count": 817
   }
 }
